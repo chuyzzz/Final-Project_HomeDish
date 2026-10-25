@@ -6,8 +6,8 @@ from config import BASE_URL, MODEL, Budget
 ROOT = Path(__file__).resolve().parent; LOG = ROOT / "logs" / "runs.jsonl"
 def load_env():
     load_dotenv(ROOT/".env", override=False); load_dotenv(ROOT.parent/".env", override=False)
-    key = os.getenv("PORTKEY_API_KEY") or os.getenv("PORTKEY_API")
-    if not key: raise RuntimeError("PORTKEY_API_KEY is missing. Put it in Final Project/.env or the parent .env.")
+    key = os.getenv("PORTKEY_API") or os.getenv("PORTKEY_API_KEY")
+    if not key: raise RuntimeError("PORTKEY_API is missing. Put it in Final Project/.env or the parent .env.")
     return key
 def get_client():
     key=load_env(); return OpenAI(api_key=key, base_url=BASE_URL, default_headers={"x-portkey-api-key":key,"x-portkey-provider":"openai"})

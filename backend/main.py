@@ -18,7 +18,7 @@ class CalculationRequest(BaseModel):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "service": "vision+nutrition", "model": "gpt-6-luna", "data_source": "bundled USDA table"}
+    return {"status": "ok", "service": "vision+nutrition", "model": "gpt_luna", "data_source": "bundled USDA table"}
 
 @app.post("/calculate")
 def calculate(request: CalculationRequest):

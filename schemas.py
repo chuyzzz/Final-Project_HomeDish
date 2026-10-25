@@ -11,5 +11,12 @@ class SwapChange(BaseModel):
 class SwapVersion(BaseModel):
     title: str = "Lighter version"; authenticity_note: str = "Keeps the dish recognizable."; changes: list[SwapChange] = []; new_ingredients: list[IngredientEstimate] = []; steps: list[str] = []; flavor_tradeoff: str = "A small flavor tradeoff."
 class SwapResponse(BaseModel): versions: list[SwapVersion]
+class RecipeRecommendation(BaseModel):
+    recipe_id: str
+    reason: str = "A recipe from the same ingredient orbit."
+    shared_ingredients: list[str] = []
+    health_angle: str = "A lighter direction to explore."
+    interest_angle: str = "A fresh way to use familiar ingredients."
+class RecipeRecommendationResponse(BaseModel): recommendations: list[RecipeRecommendation]
 class CriticResult(BaseModel):
     accepted: bool; authenticity_score: int = Field(ge=1, le=5); reason: str; allergen_flags: list[str] = []; medical_claims: list[str] = []

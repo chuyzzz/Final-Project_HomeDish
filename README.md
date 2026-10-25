@@ -2,13 +2,13 @@
 
 HomeDish helps international students rebuilding a kitchen in the U.S. make familiar home dishes healthier without losing the feeling of home.
 
-Upload a dish photo, review the ingredient and portion assumptions, choose a culturally recognizable lighter version, and move it into a weekly plan, pantry, Cook Mode, or grocery list. The current Discover catalog contains 238 recipes: 15 curated HomeDish recipes plus 223 source-linked records.
+Upload a dish photo, review the ingredient and portion assumptions, choose one of two culturally recognizable lighter versions, or open a “How about?” set of three ingredient-linked source recipes. Move the choice into a weekly plan, pantry, Cook Mode, or grocery list. The current Discover catalog contains 238 recipes: 15 curated HomeDish recipes plus 223 source-linked records.
 
 ## Course submission package
 
 - `app.py` — Streamlit product experience with Home, Discover, Planner, Pantry, Cook Mode, Grocery, Recipe Box, and photo analysis.
 - `backend/` — FastAPI image-recognition and deterministic-calculation boundary.
-- `agents/` — recognizer, ingredient matcher, Swap Chef, and safety critic.
+- `agents/` — recognizer, USDA ingredient matcher, Swap Chef, ingredient-aware recipe matcher, and safety critic.
 - `tools/` — USDA search, deterministic nutrition, and grocery-list utilities.
 - `data/` — bundled USDA sample table, recipe catalog, and import/build scripts.
 - `report/report.html` — 10-page course report.
@@ -25,7 +25,7 @@ python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
-# Add the teaching environment's PORTKEY_API_KEY to .env.
+# Add the teaching environment's PORTKEY_API value to .env.
 ```
 
 Start the FastAPI backend in one terminal:
@@ -42,7 +42,7 @@ Start Streamlit in a second terminal:
 
 Open `http://127.0.0.1:8501`. The backend exposes `/health`, `/recognize`, and `/calculate`.
 
-The app uses only `gpt-6-luna` through Portkey. Environment lookup checks `Final Project/.env` first and then the parent `.env`; the key is never committed. `.env.example` contains names only.
+The app uses only `gpt_luna` through Portkey. Environment lookup checks `Final Project/.env` first and then the parent `.env`; the key is never committed. `.env.example` contains names only.
 
 ## Open the report and slide deck
 
@@ -89,7 +89,7 @@ python data/import_themealdb.py --target 240
 
 ## Architecture and safeguards
 
-The flow is: photo → vision recognizer → user confirmation → USDA candidate matcher → deterministic nutrition calculator → Swap Chef → matcher/calculator verification → safety critic → grocery list. Pydantic validates structured handoffs; image uploads are resized to 768 px; visible image text is treated as data, not instructions; the critic permits at most one repair; and the budget caps each run at 10 LLM calls and `$0.05`.
+The flow is: photo → vision recognizer → user confirmation → USDA candidate matcher → deterministic nutrition calculator → Swap Chef (two lighter versions) → ingredient-overlap retrieval → recipe matcher agent (three source-linked “How about?” recipes) → safety critic → grocery list. Pydantic validates structured handoffs; image uploads are resized to 768 px; visible image text is treated as data, not instructions; the recipe agent can only select from the deterministic shortlist; the critic permits at most one repair; and the budget caps each run at 10 LLM calls and `$0.05`.
 
 The report records the measured local sample: 29 provider calls, 82,750 input tokens, 23,139 output tokens, zero cached input tokens, and 119.62 seconds total latency. Dollar cost is intentionally not calculated until the official course price configuration is populated.
 

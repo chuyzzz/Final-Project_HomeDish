@@ -1,10 +1,13 @@
 from pathlib import Path
 import json
+import html
+import re
 import streamlit as st
 from config import Budget
 from agents.recognizer import recognize
 from agents.matcher import match
 from agents.swap_chef import suggest
+from agents.recipe_matcher import recommend_recipes
 from agents.critic import critic
 from tools.nutrition import compute
 from tools.grocery import build
@@ -34,7 +37,7 @@ st.markdown("""
 .stApp{background:#f5f4ef}.main .block-container{max-width:1440px;padding:2.4rem 4.5rem 5rem}.stAppViewContainer{background:#f5f4ef}[data-testid="stSidebar"]{background:#173f38;border-right:0}[data-testid="stSidebar"] *{color:#edf3ec}[data-testid="stSidebar"] hr{border-color:#356257}.brand{padding:5px 3px 30px}.brand-mark{background:#e4684e;box-shadow:0 7px 18px #0c282455}.brand-name{color:#fff}.brand-sub{color:#a9c0b6}.stRadio label{color:#c7d8d0!important}.stRadio [data-baseweb="radio"]{padding:8px 10px;border-radius:9px}.stRadio [data-baseweb="radio"]:has(input:checked){background:#2a5b50}.stRadio [data-baseweb="radio"] div:first-child{display:none}.stRadio [data-baseweb="radio"] label{font-weight:600}
 h1{font-size:3.45rem!important;color:#182a27!important}h2{font-size:1.85rem!important}.eyebrow{color:#d85d45}.hero{background:linear-gradient(108deg,rgba(20,57,50,.98) 0%,rgba(24,72,61,.92) 52%,rgba(24,72,61,.67) 100%),url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1500&q=80') center/cover;border-radius:18px;padding:45px 48px;min-height:270px;box-shadow:0 18px 40px rgba(19,57,50,.16)}.hero h1{color:#fff!important;font-size:3.55rem!important}.hero p{color:#d8e5dd;max-width:560px}.hero .eyebrow{color:#f4c0a6}.section-label{margin:37px 0 15px;border-bottom:1px solid #dfe1dc;padding-bottom:10px}.section-label h2{color:#183d36!important;font-family:'DM Sans',sans-serif!important;font-size:1.2rem!important;font-weight:700;letter-spacing:-.02em}.section-label span{color:#d85d45;text-transform:uppercase;letter-spacing:.1em;font-size:10px}
 .recipe-card{border-radius:13px;background:#fffefa;border:1px solid #dedfd9;padding:17px;min-height:174px;box-shadow:0 8px 20px rgba(31,47,40,.045)}.recipe-card h3{font-family:'DM Sans',sans-serif!important;font-size:17px!important;color:#183d36!important}.recipe-card p{color:#77837c}.stImage img{border-radius:13px 13px 0 0;max-height:185px;object-fit:cover;filter:saturate(.94)}.stImage{margin-bottom:-10px}.tag{background:#e1eee6;color:#286454;border-radius:6px;padding:4px 7px}.stat{border-radius:12px;background:#fffefa;border-color:#dedfd9;box-shadow:0 8px 20px rgba(31,47,40,.035)}.planner-day{border-radius:12px;background:#fffefa;border-color:#dedfd9}.planner-day.active{border:2px solid #e4684e}.meal-pill{border-radius:6px}.meal-pill.green{background:#e1eee6;color:#286454}
-.stButton>button{background:#173f38;border-radius:8px;border:1px solid #173f38;box-shadow:none}.stButton>button:hover{background:#286454;color:#fff}.stDownloadButton>button,.stLinkButton>button{border-radius:8px;border:1px solid #b9cfc3;background:#fffefa;color:#173f38}.stTextInput input,.stNumberInput input,.stSelectbox div[data-baseweb="select"]>div{background:#fffefa;border-color:#d8ddd8;border-radius:8px}.stTabs [data-baseweb="tab"]{background:transparent;border-radius:6px;color:#68766e}.stTabs [aria-selected="true"]{background:#173f38!important;color:#fff!important}.recommendation-card{border-radius:14px;background:#fffefa;border-color:#dedfd9}.recommendation-change{background:#edf3ed;border-radius:8px}.tip{border-radius:10px}.ingredient-note{border-radius:10px}
+.stButton>button{background:#173f38;border-radius:8px;border:1px solid #173f38;box-shadow:none}.stButton>button:hover{background:#286454;color:#fff}.stDownloadButton>button,.stLinkButton>button{border-radius:8px;border:1px solid #b9cfc3;background:#fffefa;color:#173f38}.stTextInput input,.stNumberInput input,.stSelectbox div[data-baseweb="select"]>div{background:#fffefa;border-color:#d8ddd8;border-radius:8px}.stTabs [data-baseweb="tab"]{background:transparent;border-radius:6px;color:#68766e}.stTabs [aria-selected="true"]{background:#173f38!important;color:#fff!important}.recommendation-card{border-radius:14px;background:#fffefa;border-color:#dedfd9}.recommendation-change{background:#edf3ed;border-radius:8px}.tip{border-radius:10px}.ingredient-note{border-radius:10px}.how-about-card{border:1px solid #d7ded8;border-radius:15px;background:#fffefa;overflow:hidden;box-shadow:0 10px 24px rgba(31,47,40,.06);min-height:355px}.how-about-card h3{font-family:'DM Sans',sans-serif!important;color:#173f38!important;font-size:19px!important;line-height:1.1;margin:0 0 8px}.how-about-body{padding:16px 17px 18px}.how-about-source{color:#d85d45;font-size:9px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:7px}.how-about-card p{color:#62726a;font-size:12px;line-height:1.5;margin:7px 0 11px}.how-about-label{color:#173f38;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-top:12px}.how-about-chip{display:inline-block;background:#e1eee6;color:#286454;border-radius:99px;padding:5px 8px;font-size:10px;margin:4px 4px 0 0}.how-about-angle{background:#f2f4ee;border-left:3px solid #e4684e;border-radius:0 8px 8px 0;padding:9px 10px;color:#52625a;font-size:11px;line-height:1.45;margin-top:6px}
 </style>
 """, unsafe_allow_html=True)
 
@@ -107,7 +110,7 @@ body:not(:has(.landing-page)) .eyebrow{color:#8dd6f6;font-size:10px;letter-spaci
 body:not(:has(.landing-page)) .section-label{border-bottom:1px solid #2b3231;margin-top:38px;padding-bottom:11px}
 body:not(:has(.landing-page)) .section-label h2{color:#f4f2ed!important;font-size:1.15rem!important;letter-spacing:-.03em!important}
 body:not(:has(.landing-page)) .section-label span{color:#d7fa72;text-transform:uppercase;letter-spacing:.14em;font-size:10px}
-body:not(:has(.landing-page)) .recipe-card,body:not(:has(.landing-page)) .stat,body:not(:has(.landing-page)) .planner-day,body:not(:has(.landing-page)) [data-testid="stMetric"],body:not(:has(.landing-page)) .recommendation-card{background:#1b2020!important;border-color:#303838!important;color:#f4f2ed;box-shadow:0 16px 35px #00000025}
+body:not(:has(.landing-page)) .recipe-card,body:not(:has(.landing-page)) .stat,body:not(:has(.landing-page)) .planner-day,body:not(:has(.landing-page)) [data-testid="stMetric"],body:not(:has(.landing-page)) .recommendation-card,body:not(:has(.landing-page)) .how-about-card{background:#1b2020!important;border-color:#303838!important;color:#f4f2ed;box-shadow:0 16px 35px #00000025}
 body:not(:has(.landing-page)) .recipe-card h3,body:not(:has(.landing-page)) .stat-value,body:not(:has(.landing-page)) .day-date,body:not(:has(.landing-page)) .recommendation-card h3{color:#f4f2ed!important}
 body:not(:has(.landing-page)) .recipe-card p,body:not(:has(.landing-page)) .stat-label,body:not(:has(.landing-page)) .day-name{color:#9da9a4}
 body:not(:has(.landing-page)) .stat-note{color:#d7fa72}
@@ -118,6 +121,7 @@ body:not(:has(.landing-page)) .meal-pill.green{background:#243f37;color:#b4efbc}
 body:not(:has(.landing-page)) .tip{background:#242b29!important;border:1px solid #3c4b47;color:#d7e4df}
 body:not(:has(.landing-page)) .recommendation-kicker{color:#8dd6f6}
 body:not(:has(.landing-page)) .recommendation-change{background:#242c2a;color:#dce7e1;border:1px solid #34423e}
+body:not(:has(.landing-page)) .how-about-card h3,body:not(:has(.landing-page)) .how-about-label{color:#f4f2ed!important}body:not(:has(.landing-page)) .how-about-card p{color:#a9b2ae!important}body:not(:has(.landing-page)) .how-about-source{color:#8dd6f6}body:not(:has(.landing-page)) .how-about-chip{background:#283b38;color:#a5eee1;border:1px solid #3a5b55}body:not(:has(.landing-page)) .how-about-angle{background:#242c2a;border-color:#d7fa72;color:#dce7e1}
 body:not(:has(.landing-page)) .recommendation-change strong{color:#d7fa72}
 body:not(:has(.landing-page)) .recommendation-change small{color:#9aa8a2}
 body:not(:has(.landing-page)) .step-row{border-color:#303837;color:#d5dfda}
@@ -205,15 +209,23 @@ def load_source_recipes():
     except (OSError,json.JSONDecodeError): return []
     hidden_names={"mapo tofu","coconut chickpea curry","jollof rice"}
     recipes=[]
-    for item in raw:
+    for index,item in enumerate(raw):
         source_name=str(item.get("name","Recipe")).strip().casefold()
         if any(hidden in source_name for hidden in hidden_names): continue
         image=item.get("image","")
         if isinstance(image,dict): image=image.get("url","")
-        recipes.append({"name":item.get("name","Recipe"),"emoji":"🍽️","description":item.get("description","")[:180] or "A source-linked recipe to explore.","tags":[item.get("source","Web recipe"),"open source recipe"],"cuisine":item.get("cuisine","") or "Global","diet":"Flexible","image":image,"ingredients":item.get("ingredients",[]) if isinstance(item.get("ingredients",[]),list) else [],"steps":[],"nutrition":"","source":item.get("source","Recipe source"),"url":item.get("url","")})
+        slug=re.sub(r"[^a-z0-9]+","-",str(item.get("name","recipe")).casefold()).strip("-") or "recipe"
+        recipes.append({"id":str(item.get("id") or f"source:{index}:{slug}"),"name":item.get("name","Recipe"),"emoji":"🍽️","description":item.get("description","")[:180] or "A source-linked recipe to explore.","tags":[item.get("source","Web recipe"),"open source recipe"],"cuisine":item.get("cuisine","") or "Global","diet":"Flexible","image":image,"ingredients":item.get("ingredients",[]) if isinstance(item.get("ingredients",[]),list) else [],"steps":[],"nutrition":"","source":item.get("source","Recipe source"),"url":item.get("url","")})
     return recipes
 
-LIBRARY=RECIPES+load_source_recipes()
+def add_recipe_ids(recipes):
+    for index,recipe in enumerate(recipes):
+        if not recipe.get("id"):
+            slug=re.sub(r"[^a-z0-9]+","-",str(recipe.get("name","recipe")).casefold()).strip("-") or "recipe"
+            recipe["id"]=f"homedish:{index}:{slug}"
+    return recipes
+
+LIBRARY=add_recipe_ids(RECIPES+load_source_recipes())
 NAV_PAGES=["Home","Discover","Photo check","Meal planner","Cook mode","Pantry","Grocery list","Recipe box"]
 def init_state():
     for key,value in {"page":"Home","nav_page":"Home","nav_target":None,"planned":{"Mon":"Harissa salmon couscous","Wed":"Green shakshuka","Fri":"Dal with roasted cauliflower"},"pantry":["olive oil","garlic","rice","soy sauce"],"selected_recipe":None,"cooked_steps":[],"testimonial_index":0}.items(): st.session_state.setdefault(key,value)
@@ -306,7 +318,7 @@ def ingredient_editor(estimates):
 
 def render_recommendation(version, check, index):
     status = "A good fit for your goal" if check.accepted else "Needs a quick safety review"
-    st.markdown(f'<div class="recommendation-card"><div class="recommendation-kicker">{["Gentle","Balanced","Bold"][min(index,2)]} change · {status}</div><h3>{version.title}</h3><p><b>{version.authenticity_note}</b><br>{version.flavor_tradeoff}</p></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="recommendation-card"><div class="recommendation-kicker">{["Gentle","Balanced"][min(index,1)]} change · {status}</div><h3>{version.title}</h3><p><b>{version.authenticity_note}</b><br>{version.flavor_tradeoff}</p></div>', unsafe_allow_html=True)
     if version.changes:
         st.markdown("**What changes**")
         for change in version.changes:
@@ -320,6 +332,27 @@ def render_recommendation(version, check, index):
     if version.new_ingredients:
         chips="".join(f'<span class="ingredient-chip">{ingredient.name}</span>' for ingredient in version.new_ingredients)
         st.markdown(f"**For the lighter version**<br>{chips}", unsafe_allow_html=True)
+
+def render_recipe_recommendation(recommendation, recipe, key):
+    image=recipe.get("image")
+    if image:
+        st.image(image,use_container_width=True)
+    name=html.escape(str(recipe.get("name","Recipe")))
+    source=html.escape(str(recipe.get("source","Recipe library")))
+    cuisine=html.escape(str(recipe.get("cuisine","Global")))
+    diet=html.escape(str(recipe.get("diet","Flexible")))
+    reason=html.escape(recommendation.reason)
+    health=html.escape(recommendation.health_angle)
+    interest=html.escape(recommendation.interest_angle)
+    chips="".join(f'<span class="how-about-chip">{html.escape(str(item))}</span>' for item in recommendation.shared_ingredients)
+    shared_markup=chips or '<span class="how-about-chip">ingredient overlap verified</span>'
+    st.markdown(f'<div class="how-about-card"><div class="how-about-body"><div class="how-about-source">{source} · {cuisine} · {diet}</div><h3>{name}</h3><p>{reason}</p><div class="how-about-label">Shared ingredients</div><div>{shared_markup}</div><div class="how-about-label">Why it fits</div><div class="how-about-angle">{health}<br><br>{interest}</div></div></div>',unsafe_allow_html=True)
+    if recipe.get("url"):
+        st.link_button("Open recipe source ↗",recipe["url"],use_container_width=True)
+    if st.button("Plan it",key=f"how_about_plan_{key}",use_container_width=True):
+        st.session_state.planned["Tue"]=recipe["name"]
+        st.toast(f'{recipe["name"]} added to Tuesday')
+
 def planner_strip():
     cols=st.columns(7)
     for col,(day,date) in zip(cols,[("Mon","14"),("Tue","15"),("Wed","16"),("Thu","17"),("Fri","18"),("Sat","19"),("Sun","20")]):
@@ -464,13 +497,29 @@ else:
         st.markdown('<div class="tip">Every gram stays editable. Items we could not match to USDA will be clearly marked rather than silently counted.</div>',unsafe_allow_html=True)
         if st.button("Calculate nutrition & swaps →",use_container_width=True):
             try:
-                b=Budget(); items=[IngredientEstimate.model_validate(x) for x in edited] if edited and all_estimates else []; ms=match(items,b); counted=[m.model_dump() for m in ms if m.fdc_id]; n=calculate_with_backend(counted,r.servings_estimate); s=suggest(r.dish_name,r.cuisine,[m.model_dump() for m in ms],n,goal,constraints,b); st.session_state.result=(ms,n,s,[critic(v,constraints) for v in s.versions],b)
+                b=Budget(); items=[IngredientEstimate.model_validate(x) for x in edited] if edited and all_estimates else []; ms=match(items,b); matched_ingredients=[m.model_dump() for m in ms]; counted=[m for m in matched_ingredients if m.get("fdc_id")]; n=calculate_with_backend(counted,r.servings_estimate); s=suggest(r.dish_name,r.cuisine,matched_ingredients,n,goal,constraints,b); checks=[critic(v,constraints) for v in s.versions[:2]]; recipe_recommendations=recommend_recipes(LIBRARY,matched_ingredients,r.dish_name,r.cuisine,goal,constraints,b); st.session_state.result=(ms,n,s,checks,recipe_recommendations,b)
             except Exception as e: st.error(f"Calculation failed: {e}")
     if "result" in st.session_state:
-        ms,n,s,checks,b=st.session_state.result
-        st.markdown('<div class="section-label"><h2>Three ways to lighten it</h2><span>mild → bold</span></div>',unsafe_allow_html=True); tabs=st.tabs([v.title for v in s.versions])
-        for tab,v,c in zip(tabs,s.versions,checks):
+        result_data=st.session_state.result
+        if len(result_data)==5:
+            ms,n,s,checks,b=result_data; recipe_recommendations=[]
+        else:
+            ms,n,s,checks,recipe_recommendations,b=result_data
+        visible_versions=s.versions[:2]
+        st.markdown('<div class="section-label"><h2>Ways to lighten it</h2><span>gentle → balanced</span></div>',unsafe_allow_html=True); tabs=st.tabs([v.title for v in visible_versions])
+        for index,(tab,v,c) in enumerate(zip(tabs,visible_versions,checks)):
             with tab:
-                render_recommendation(v,c,s.versions.index(v))
-                if c.accepted and st.button("Add ingredients to grocery list",key=v.title): st.session_state.grocery=build([x.model_dump() for x in v.new_ingredients],r.servings_estimate); st.toast("Added to grocery list")
+                render_recommendation(v,c,index)
+                if c.accepted and st.button("Add ingredients to grocery list",key=f"swap_grocery_{index}"): st.session_state.grocery=build([x.model_dump() for x in v.new_ingredients],r.servings_estimate); st.toast("Added to grocery list")
+        st.markdown('<div class="section-label"><h2>How about?</h2><span>same ingredients · new direction</span></div>',unsafe_allow_html=True)
+        st.caption("Three recipes from your kitchen's ingredient orbit, selected from the HomeDish library and reranked by the ingredient-matching agent.")
+        if recipe_recommendations:
+            recipe_by_id={str(recipe.get("id")):recipe for recipe in LIBRARY}
+            recommendation_cols=st.columns(3,gap="large")
+            for col,recommendation in zip(recommendation_cols,recipe_recommendations[:3]):
+                recipe=recipe_by_id.get(recommendation.recipe_id)
+                if recipe:
+                    with col: render_recipe_recommendation(recommendation,recipe,recommendation.recipe_id.replace(":","_"))
+        else:
+            st.info("We could not find three linkable recipes with enough ingredient overlap for this dish yet. Try confirming a few more ingredient names above.")
         st.sidebar.metric("LLM calls",b.calls); st.sidebar.metric("Measured cost",f"${b.cost_usd:.4f}")

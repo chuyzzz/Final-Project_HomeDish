@@ -3,7 +3,7 @@ from pydantic import ValidationError
 from schemas import SwapResponse
 from llm import chat
 
-SYSTEM = "Suggest exactly three lighter versions of the same culturally recognizable dish, mild to bold. Preserve signature ingredients and techniques, target the largest contributors, respect allergies, and make no medical claims. Return JSON only with a top-level `versions` array. Each version should have title, authenticity_note, changes, new_ingredients, steps, and flavor_tradeoff. Do not use the key `lighter_versions`; do not give nutrition numbers."
+SYSTEM = "Suggest exactly two lighter versions of the same culturally recognizable dish, ordered gentle to balanced. Preserve signature ingredients and techniques, target the largest contributors, respect allergies, and make no medical claims. Return JSON only with a top-level `versions` array. Each version should have title, authenticity_note, changes, new_ingredients, steps, and flavor_tradeoff. Do not use the key `lighter_versions`; do not give nutrition numbers."
 
 def _normalise(payload):
     if "versions" not in payload:
@@ -28,6 +28,7 @@ def _normalise(payload):
         for ingredient in version["new_ingredients"]:
             if isinstance(ingredient, dict):
                 ingredient.setdefault("name", ingredient.get("ingredient_name", ingredient.get("ingredient", "new ingredient")))
+    payload["versions"] = payload.get("versions", [])[:2]
     return payload
 
 def suggest(dish, cuisine, ingredients, nutrition, goal, constraints, budget):

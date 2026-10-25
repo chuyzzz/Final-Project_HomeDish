@@ -5,7 +5,7 @@
 
 ## 0. What the app does (one sentence)
 
-Upload a photo of a home-cooked dish (e.g. mapo tofu, butter chicken, jollof rice). The app identifies the ingredients and portions, computes a nutrition **range** from USDA data, and suggests 2–3 lighter versions that **keep the dish recognizably authentic** (not "eat a salad instead"). It shows the verified savings and a grocery list for the swapped recipe.
+Upload a photo of a home-cooked dish (e.g. mapo tofu, butter chicken, jollof rice). The app identifies the ingredients and portions, computes a nutrition **range** from USDA data, shows two lighter versions that **keep the dish recognizably authentic**, and offers a “How about?” set of three ingredient-linked recipes from the source catalog. It shows verified savings for direct swaps and connects recipe choices to planning and grocery actions.
 
 **Core design principle:** the LLM *recognizes* and *suggests*. Every number (calories, nutrients, savings) is computed by deterministic Python from USDA data, never invented by the model.
 
@@ -13,7 +13,7 @@ Upload a photo of a home-cooked dish (e.g. mapo tofu, butter chicken, jollof ric
 
 ## 1. Hard constraints (from course rules) — agent must follow
 
-- Model: **`gpt-6-luna` only**, via **Portkey** using env var **`PORTKEY_API_KEY`** (exact name). No other API keys.
+- Model: **`gpt_luna` only**, via **Portkey** using the `PORTKEY_API` value from `.env`. No other API keys.
 - `.env` lookup order: **repo folder first, then one folder above** (`../.env`). Use `python-dotenv`.
 - Commit `.env.example` (key names only, no values). **Never commit `.env`.** Add `.env` to `.gitignore`.
 - Must run from a fresh clone in **under 10 minutes** following the README.
@@ -58,7 +58,8 @@ homedish/
 │   ├── recognizer.py         # Agent 1: photo -> dish + ingredients + portions
 │   ├── matcher.py            # Agent 2: ingredient name -> USDA food (fuzzy + LLM pick)
 │   ├── swap_chef.py          # Agent 3: lighter authentic versions
-│   └── critic.py             # Agent 4: authenticity + safety review
+│   ├── recipe_matcher.py     # Agent 4: ingredient-aware catalog recommendations
+│   └── critic.py             # Agent 5: authenticity + safety review
 ├── tools/
 │   ├── nutrition.py          # deterministic nutrient math (ranges)
 │   ├── usda.py               # load/search USDA table
@@ -87,11 +88,11 @@ homedish/
 ### Phase 0 — Smoke test (do this FIRST, ~15 min)
 
 1. Create `llm.py`:
-   - `load_env()`: load `./.env` if it exists, else `../.env`. Raise a clear error if `PORTKEY_API_KEY` is missing.
-   - `get_client()`: Portkey client using `PORTKEY_API_KEY`. Mirror the exact client setup from the course homework (provider / virtual key / base URL).
-   - `chat(messages, agent_name, response_format=None)`: calls `gpt-6-luna`, returns text, and appends one line to `logs/runs.jsonl`: `{run_id, agent, input_tokens, cached_input_tokens, output_tokens, latency_s, timestamp}`. Cached tokens are in `usage.prompt_tokens_details.cached_tokens` when present.
+   - `load_env()`: load `./.env` if it exists, else `../.env`. Raise a clear error if `PORTKEY_API` is missing.
+   - `get_client()`: Portkey client using `PORTKEY_API`. Mirror the exact client setup from the course homework (provider / virtual key / base URL).
+   - `chat(messages, agent_name, response_format=None)`: calls `gpt_luna`, returns text, and appends one line to `logs/runs.jsonl`: `{run_id, agent, input_tokens, cached_input_tokens, output_tokens, latency_s, timestamp}`. Cached tokens are in `usage.prompt_tokens_details.cached_tokens` when present.
 2. Script `smoke_test.py`: send **one food photo** (base64 data URL, resized to max 768 px) and ask "List the ingredients you see."
-3. **Check:** the model returns a sensible ingredient list. **If gpt-6-luna does not accept images, STOP and report back.** The whole app depends on this.
+3. **Check:** the model returns a sensible ingredient list. **If gpt_luna does not accept images, STOP and report back.** The whole app depends on this.
 
 ### Phase 1 — USDA nutrition table (~45 min)
 
@@ -131,7 +132,7 @@ Every agent returns **strict JSON** validated by a pydantic model in `schemas.py
 
 **Agent 3 — Swap Chef** `agents/swap_chef.py`
 - Input: dish name, cuisine, confirmed ingredients + grams, nutrition breakdown with top contributors, user goal (dropdown: *fewer calories*, *less sodium*, *more protein*, *less saturated fat*), and optional constraints (vegetarian, allergies, budget).
-- Output: **3 swap versions**, ordered *mild → bold*:
+- Output: **2 visible swap versions**, ordered *gentle → balanced*:
   ```json
   {"versions": [{"title": "Lighter-oil mapo tofu", "authenticity_note": "keeps doubanjiang + Sichuan pepper, the core flavor",
      "changes": [{"from": "40 g oil", "to": "12 g oil + 2 tbsp stock", "why": "oil is 45% of calories"}],
@@ -141,8 +142,13 @@ Every agent returns **strict JSON** validated by a pydantic model in `schemas.py
 - Prompt rules: target the **top contributors** first; keep the signature ingredients and techniques of the cuisine; no generic "replace with salad/quinoa" swaps unless culturally appropriate; no medical claims.
 - After the LLM responds, run **Agent 2 + the Calculator on each version's `new_ingredients`** to compute **verified savings** ("−210 to −260 kcal per serving"). Display only these computed numbers.
 
-**Agent 4 — Critic** `agents/critic.py`
-- Input: original dish + the 3 versions + computed nutrition.
+**Agent 4 — How-about Recipe Matcher** `agents/recipe_matcher.py`
+- Deterministically normalize and score the existing recipe catalog for ingredient overlap, cuisine similarity, and lighter-direction signals.
+- Send only an 8–10 recipe shortlist to `gpt_luna`; require exactly three existing recipe IDs plus verified shared ingredients, a reason, and a health/interest direction.
+- Reject invented IDs and use a deterministic fallback when the model or budget is unavailable. Only source-linked recipes are shown so each card can open the original recipe URL.
+
+**Agent 5 — Critic** `agents/critic.py`
+- Input: original dish + the 2 visible versions + computed nutrition.
 - Checks: (a) does each version still read as the same dish (authenticity score 1–5 with reason); (b) does it respect the user's allergens/diet; (c) does it contain medical claims or extreme advice; (d) does the version actually improve the chosen goal per the computed numbers?
 - If any version fails: send the feedback to Swap Chef for **one** revision (max 1 loop, hard cap). Versions that still fail are dropped with a note.
 
@@ -160,8 +166,8 @@ Layout (keep it clean; pick one accent color, e.g. warm red/orange, and reuse it
 2. **Upload:** image uploader + optional "What is this dish?" text box + cuisine dropdown.
 3. **Step 1 — "Here's what I see":** photo next to the editable ingredient table, with hidden ingredients shown in a separate highlighted section and their reasons. "Looks right → Calculate" button.
 4. **Step 2 — Nutrition:** cards showing ranges per serving (kcal, protein, fat, carbs, sodium); a bar chart of calorie contributors by ingredient; and a note on the largest uncertainty ("the oil amount is the biggest unknown").
-5. **Step 3 — Lighter versions:** goal dropdown, then 3 cards (mild / medium / bold), each with the authenticity note, changes (from → to), verified savings, flavor tradeoff, and an expandable recipe.
-6. **Step 4 — Grocery list** for the chosen version.
+5. **Step 3 — Lighter versions:** goal dropdown, then 2 cards (gentle / balanced), each with the authenticity note, changes (from → to), verified savings, flavor tradeoff, and an expandable recipe. Follow with **How about?**: three cards from the local database sharing confirmed ingredients, each with an overlap explanation and source link.
+6. **Step 4 — Grocery list** for the chosen version or planned recipe.
 7. **Sidebar:** this run's token usage and cost (input / cached / output, $), plus a disclaimer: *"Estimates, not medical advice."*
 - Use `st.session_state` so steps don't re-run the LLM on every click. Cache results by image hash (`st.cache_data`).
 
@@ -184,8 +190,8 @@ Implement and write a pytest (or a scripted demo with a screenshot) for each:
 2. `eval/run_eval.py`: for each image, run the pipeline (once **without** and once **with** user edits) and record:
    - calorie error vs ground truth (%), and whether the truth falls inside the predicted range (coverage)
    - tokens per agent (input / cached / output), latency, cost
-3. **Baseline comparison:** ask plain ChatGPT/gpt-6-luna "how many calories is this?" for the same images → single-number error. Use this to show the benefit of ranges plus USDA grounding.
-4. **Tokenomics table:** average tokens per run, cost per run (`config.py` holds the gpt-6-luna price per 1M input/cached/output tokens; fill in from the course page), cost per user per month (assume e.g. 20 dishes/month), and totals at 100 and 10,000 users.
+3. **Baseline comparison:** ask plain ChatGPT/gpt_luna "how many calories is this?" for the same images → single-number error. Use this to show the benefit of ranges plus USDA grounding.
+4. **Tokenomics table:** average tokens per run, cost per run (`config.py` holds the gpt_luna price per 1M input/cached/output tokens; fill in from the course page), cost per user per month (assume e.g. 20 dishes/month), and totals at 100 and 10,000 users.
 5. **Cost-cutting experiments** (measure before/after): image resize 768 vs full-res (tokens + accuracy); prompt caching (cached-token share); batching the matcher into one call vs one call per ingredient; image-hash cache.
 
 ### Phase 6 — Real users (~1 hr, do in parallel Sunday)
@@ -195,7 +201,7 @@ Implement and write a pytest (or a scripted demo with a screenshot) for each:
 ### Phase 7 — README, repo hygiene, dry run (~45 min)
 
 - `README.md`: what it is, screenshot, setup (`python -m venv .venv`, `pip install -r requirements.txt`, put `.env` in the repo folder or one level up, `streamlit run app.py`), how to rebuild/switch to the full USDA data, how to run tests and eval.
-- `.env.example`: `PORTKEY_API_KEY=` (and `OPENAI_API_KEY=` only if used).
+- `.env.example`: `PORTKEY_API=` (and `OPENAI_API_KEY=` only if used).
 - `.gitignore`: `.env`, `.venv/`, `__pycache__/`, `logs/*.jsonl` (keep one `logs/sample_run.jsonl`).
 - **Dry run:** clone into a new folder, put `.env` one level up, follow the README exactly, and time it (< 10 min).
 - Push to GitHub. Make it public or add **`zlisto`** as a collaborator.
@@ -203,7 +209,7 @@ Implement and write a pytest (or a scripted demo with a screenshot) for each:
 ### Phase 8 — report.html + slides.html (~3 hrs)
 
 - Write `report/build_report.py`, which embeds every screenshot as **base64** so both files work by double-click on any computer.
-- **report.html** (10–15 printed pages), in this order: Title + links → Motivation (a real person, e.g. an international student whose home cooking doesn't match calorie apps) → What is new (compare **Cal AI, MyFitnessPal Meal Scan, Lose It! Snap It, SnapCalorie, ChatGPT**: single numbers, Western-centric swaps) → Agents (diagram, roles, tools, why gpt-6-luna, one real run traced with screenshots) → Tokenomics (measured table) → Safety (risks + the screenshots/tests from Phase 4) → Impact (eval results, user quotes, sourced stats) → Limits + next steps.
+- **report.html** (10–15 printed pages), in this order: Title + links → Motivation (a real person, e.g. an international student whose home cooking doesn't match calorie apps) → What is new (compare **Cal AI, MyFitnessPal Meal Scan, Lose It! Snap It, SnapCalorie, ChatGPT**: single numbers, Western-centric swaps) → Agents (diagram, roles, tools, why gpt_luna, one real run traced with screenshots) → Tokenomics (measured table) → Safety (risks + the screenshots/tests from Phase 4) → Impact (eval results, user quotes, sourced stats) → Limits + next steps.
 - **slides.html**: reveal.js from a CDN, ≤ 10 slides: title, problem, what's new, agent diagram, demo screenshots, cost, safety, impact, next steps. Test with arrow keys.
 
 ---
@@ -214,7 +220,7 @@ Implement and write a pytest (or a scripted demo with a screenshot) for each:
  Photo + hints
       │
       ▼
- [1 Dish Recognizer] ──(vision, gpt-6-luna)──► ingredients + gram ranges + hidden fats
+ [1 Dish Recognizer] ──(vision, gpt_luna)──► ingredients + gram ranges + hidden fats
       │
       ▼
  [User confirms / edits]
@@ -226,13 +232,18 @@ Implement and write a pytest (or a scripted demo with a screenshot) for each:
  [Nutrition Calculator] (pure Python, USDA data) ──► nutrition ranges + top contributors
       │
       ▼
- [3 Swap Chef] ──► 3 authentic lighter versions
+ [3 Swap Chef] ──► 2 authentic lighter versions
+      │
+      ├──► [How-about Retriever] ──► ingredient-overlap shortlist
+      │                             │
+      │                             ▼
+      │                       [Recipe Matcher] ──► 3 source-linked recipes
       │
       ▼
- [2 Matcher + Calculator again] ──► VERIFIED savings
+ [2 Matcher + Calculator again] ──► VERIFIED savings for direct swaps
       │
       ▼
- [4 Critic] ──(fails? 1 revision max)──► back to Swap Chef
+ [5 Critic] ──(fails? 1 revision max)──► back to Swap Chef
       │
       ▼
  [Grocery List] (pure Python) ──► shopping list

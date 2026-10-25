@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import os
 
-MODEL = "gpt-6-luna"
+MODEL = "gpt_luna"
 BASE_URL = "https://api.portkey.ai/v1"
 MAX_LLM_CALLS = 10
 MAX_RUN_COST_USD = 0.05
