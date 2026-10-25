@@ -5,7 +5,7 @@
 
 ## 0. What the app does (one sentence)
 
-Upload a photo of a home-cooked dish (e.g. mapo tofu, butter chicken, jollof rice). The app identifies the ingredients and portions, computes a nutrition **range** from USDA data, shows two lighter versions that **keep the dish recognizably authentic**, and offers a “How about?” set of three ingredient-linked recipes from the source catalog. It shows verified savings for direct swaps and connects recipe choices to planning and grocery actions.
+Upload a photo of a home-cooked dish (e.g. mapo tofu, butter chicken, jollof rice). The app identifies the ingredients and portions, computes a nutrition **range** from USDA data, shows two lighter versions that **keep the dish recognizably authentic**, offers a “How about?” set of three ingredient-linked recipes, and suggests three wine pairings from X-Wines. It shows verified savings for direct swaps and connects recipe choices to planning and pairing actions.
 
 **Core design principle:** the LLM *recognizes* and *suggests*. Every number (calories, nutrients, savings) is computed by deterministic Python from USDA data, never invented by the model.
 
@@ -43,6 +43,7 @@ The first implementation is intentionally expanding beyond a single upload scree
 - **Cook mode:** full recipe image, ingredient checklist, step checklist, progress indicator, and nutrition range.
 - **Pantry:** user-maintained staples that inform grocery planning and substitution suggestions.
 - **Grocery list:** grouped, checkable, downloadable list generated from the weekly plan and pantry state.
+- **Wine pairing:** a dish profile, citable Python pairing rules, ranked X-Wines matches, and concise explanations grounded in the catalog’s Harmonize fields.
 
 The image path is separated into a FastAPI service so uploads have one dependable boundary: request validation, image resizing, Portkey vision calls, schema repair, budget controls, and a health check are handled outside the Streamlit rerun loop. Start it with `uvicorn backend.main:app --host 127.0.0.1 --port 8000` before launching Streamlit.
 
@@ -59,14 +60,18 @@ homedish/
 │   ├── matcher.py            # Agent 2: ingredient name -> USDA food (fuzzy + LLM pick)
 │   ├── swap_chef.py          # Agent 3: lighter authentic versions
 │   ├── recipe_matcher.py     # Agent 4: ingredient-aware catalog recommendations
-│   └── critic.py             # Agent 5: authenticity + safety review
+│   ├── critic.py             # Agent 5: authenticity + safety review
+│   └── wine_explainer.py     # Agent 6: explain deterministic wine matches
 ├── tools/
 │   ├── nutrition.py          # deterministic nutrient math (ranges)
 │   ├── usda.py               # load/search USDA table
-│   └── grocery.py            # deterministic grocery list builder
+│   ├── grocery.py            # deterministic grocery list builder
+│   └── wine_pairing.py       # dish profile + X-Wines rules/ranker
 ├── schemas.py                # pydantic models for every agent's JSON output
 ├── data/
 │   ├── usda_sample.csv       # trimmed USDA table (bundled, small)
+│   ├── wine_catalog.json      # normalized X-Wines Test sample (100 wines)
+│   ├── import_xwines.py      # rebuild from Test, Slim, or Full X-Wines CSVs
 │   ├── build_usda_table.py   # script to rebuild from full FDC download
 │   └── test_images/          # 8–10 dish photos for eval + demo
 ├── eval/
@@ -152,6 +157,14 @@ Every agent returns **strict JSON** validated by a pydantic model in `schemas.py
 - Checks: (a) does each version still read as the same dish (authenticity score 1–5 with reason); (b) does it respect the user's allergens/diet; (c) does it contain medical claims or extreme advice; (d) does the version actually improve the chosen goal per the computed numbers?
 - If any version fails: send the feedback to Swap Chef for **one** revision (max 1 loop, hard cap). Versions that still fail are dropped with a note.
 
+**Agent 6 — Wine Explainer** `agents/wine_explainer.py`
+- Receive only the deterministic dish profile and top three X-Wines candidates.
+- Return one concise explanation per existing `wine_id`; never invent a bottle, price, tasting note, or health claim. Fall back to a rule-based sentence if the optional explanation call is unavailable.
+
+**Tool — Wine pairing** `tools/wine_pairing.py`
+- Score confirmed ingredient names and USDA nutrition ranges for heat, richness, salt, sweetness, acidity, umami, and protein weight.
+- Apply citable pairing rules in Python, filter/rank X-Wines by `Harmonize`, type, body, acidity, ABV, grapes, and user rating, then pass only three existing rows to the explainer.
+
 **Tool — Grocery List** (deterministic, `tools/grocery.py`)
 - For the version the user picks: list its ingredients scaled by servings, grouped by section (produce, protein, pantry/sauces, specialty/international aisle), and marked "probably already have" for pantry staples. Export as copyable text / downloadable `.txt`.
 
@@ -167,8 +180,9 @@ Layout (keep it clean; pick one accent color, e.g. warm red/orange, and reuse it
 3. **Step 1 — "Here's what I see":** photo next to the editable ingredient table, with hidden ingredients shown in a separate highlighted section and their reasons. "Looks right → Calculate" button.
 4. **Step 2 — Nutrition:** cards showing ranges per serving (kcal, protein, fat, carbs, sodium); a bar chart of calorie contributors by ingredient; and a note on the largest uncertainty ("the oil amount is the biggest unknown").
 5. **Step 3 — Lighter versions:** goal dropdown, then 2 cards (gentle / balanced), each with the authenticity note, changes (from → to), verified savings, flavor tradeoff, and an expandable recipe. Follow with **How about?**: three cards from the local database sharing confirmed ingredients, each with an overlap explanation and source link.
-6. **Step 4 — Grocery list** for the chosen version or planned recipe.
-7. **Sidebar:** this run's token usage and cost (input / cached / output, $), plus a disclaimer: *"Estimates, not medical advice."*
+6. **Step 4 — Wine pairing:** show the dish profile, target wine style, three ranked X-Wines matches, Harmonize tags, rating metadata, and a grounded one-sentence explanation.
+7. **Step 5 — Grocery list** for the chosen version or planned recipe.
+8. **Sidebar:** this run's token usage and cost (input / cached / output, $), plus a disclaimer: *"Estimates, not medical advice."*
 - Use `st.session_state` so steps don't re-run the LLM on every click. Cache results by image hash (`st.cache_data`).
 
 **Check:** a new user can go from upload to grocery list without instructions.
@@ -244,6 +258,9 @@ Implement and write a pytest (or a scripted demo with a screenshot) for each:
       │
       ▼
  [5 Critic] ──(fails? 1 revision max)──► back to Swap Chef
+      │
+      ▼
+ [6 Wine Explainer] ──► grounded wine explanation
       │
       ▼
  [Grocery List] (pure Python) ──► shopping list

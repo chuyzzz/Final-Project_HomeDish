@@ -2,15 +2,15 @@
 
 HomeDish helps international students rebuilding a kitchen in the U.S. make familiar home dishes healthier without losing the feeling of home.
 
-Upload a dish photo, review the ingredient and portion assumptions, choose one of two culturally recognizable lighter versions, or open a “How about?” set of three ingredient-linked source recipes. Move the choice into a weekly plan, pantry, Cook Mode, or grocery list. The current Discover catalog contains 238 recipes: 15 curated HomeDish recipes plus 223 source-linked records.
+Upload a dish photo, review the ingredient and portion assumptions, choose one of two culturally recognizable lighter versions, open a “How about?” set of three ingredient-linked source recipes, or ask what wine pairs with the dish. Move the choice into a weekly plan, pantry, Cook Mode, or grocery list. The current Discover catalog contains 238 recipes, and the wine workflow uses a bundled 100-wine X-Wines sample with Harmonize tags and ratings.
 
 ## Course submission package
 
 - `app.py` — Streamlit product experience with Home, Discover, Planner, Pantry, Cook Mode, Grocery, Recipe Box, and photo analysis.
 - `backend/` — FastAPI image-recognition and deterministic-calculation boundary.
-- `agents/` — recognizer, USDA ingredient matcher, Swap Chef, ingredient-aware recipe matcher, and safety critic.
-- `tools/` — USDA search, deterministic nutrition, and grocery-list utilities.
-- `data/` — bundled USDA sample table, recipe catalog, and import/build scripts.
+- `agents/` — recognizer, USDA ingredient matcher, Swap Chef, ingredient-aware recipe matcher, wine explainer, and safety critic.
+- `tools/` — USDA search, deterministic nutrition, grocery-list, dish-profile, and wine-ranking utilities.
+- `data/` — bundled USDA sample table, recipe catalog, normalized X-Wines sample, and import/build scripts.
 - `report/report.html` — 10-page course report.
 - `report/slides.html` — 9-slide reveal.js presentation.
 - `report_portal/` — local portal for opening both HTML documents.
@@ -87,9 +87,18 @@ To populate 200+ structured recipes from TheMealDB:
 python data/import_themealdb.py --target 240
 ```
 
+The wine pairing workflow uses `data/wine_catalog.json`, normalized from the openly licensed X-Wines Test sample (`100` wines + `1,000` ratings). It uses `Harmonize`, grape, type, body, acidity, region, and rating fields. To rebuild it from the sample or a downloaded Slim/Full X-Wines export:
+
+```bash
+python data/import_xwines.py --wines /path/to/XWines_Test_100_wines.csv \
+  --ratings /path/to/XWines_Test_1K_ratings.csv --output data/wine_catalog.json
+```
+
+The app applies classic pairing rules in Python—heat favors off-dry, lower-tannin styles; richness favors acidity or body; sweetness should not exceed the wine’s sweetness; and salt/umami favor fruit and restrained tannin—then asks `gpt_luna` only for concise explanations. The rules are informed by [Wine Folly](https://winefolly.com), [GuildSomm](https://www.guildsomm.com/), and [Wikipedia’s wine-and-food-matching summary](https://en.wikipedia.org/wiki/Wine_and_food_matching); the model does not invent bottle facts.
+
 ## Architecture and safeguards
 
-The flow is: photo → vision recognizer → user confirmation → USDA candidate matcher → deterministic nutrition calculator → Swap Chef (two lighter versions) → ingredient-overlap retrieval → recipe matcher agent (three source-linked “How about?” recipes) → safety critic → grocery list. Pydantic validates structured handoffs; image uploads are resized to 768 px; visible image text is treated as data, not instructions; the recipe agent can only select from the deterministic shortlist; the critic permits at most one repair; and the budget caps each run at 10 LLM calls and `$0.05`.
+The flow is: photo → vision recognizer → user confirmation → USDA candidate matcher → deterministic nutrition calculator → Swap Chef (two lighter versions) → safety critic → ingredient-overlap retrieval → recipe matcher agent (three source-linked “How about?” recipes) → dish wine profile → X-Wines pairing rules/ranker → wine explainer → grocery list. Pydantic validates structured handoffs; image uploads are resized to 768 px; visible image text is treated as data, not instructions; recipe and wine agents can only explain deterministic candidates; the critic permits at most one repair; and the budget caps each run at 10 LLM calls and `$0.05`.
 
 The report records the measured local sample: 29 provider calls, 82,750 input tokens, 23,139 output tokens, zero cached input tokens, and 119.62 seconds total latency. Dollar cost is intentionally not calculated until the official course price configuration is populated.
 
@@ -98,4 +107,6 @@ The report records the measured local sample: 29 provider calls, 82,750 input to
 - [MGT 409 project requirements](https://zlisto.github.io/mgt_409_fa26/project_requirements.html)
 - [USDA FoodData Central](https://fdc.nal.usda.gov/)
 - [TheMealDB API](https://www.themealdb.com/api.php)
+- [X-Wines](https://github.com/rogerioxavier/X-Wines) — openly licensed wine metadata, Harmonize food tags, and ratings; cite the project paper when using the dataset.
+- [Wine Folly](https://winefolly.com) and [Wikipedia: Wine and food matching](https://en.wikipedia.org/wiki/Wine_and_food_matching) — pairing-rule references.
 - [reveal.js](https://revealjs.com/)

@@ -212,7 +212,7 @@ def recommend_recipes(recipes: list[dict], user_ingredients: Iterable, dish: str
     try:
         raw = chat([{"role": "system", "content": SYSTEM}, {"role": "user", "content": prompt}], "recipe_matcher", budget, {"type": "json_object"})
         parsed = RecipeRecommendationResponse.model_validate(json.loads(raw))
-    except (ValidationError, json.JSONDecodeError, TypeError, ValueError, RuntimeError):
+    except Exception:
         return _fallback(shortlist)
 
     by_id = {item["recipe_id"]: item for item in shortlist}

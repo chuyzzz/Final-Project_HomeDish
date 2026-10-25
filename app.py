@@ -8,11 +8,13 @@ from agents.recognizer import recognize
 from agents.matcher import match
 from agents.swap_chef import suggest
 from agents.recipe_matcher import recommend_recipes
+from agents.wine_explainer import explain_pairings
 from agents.critic import critic
 from tools.nutrition import compute
 from tools.grocery import build
 from backend_client import recognize_with_backend, calculate_with_backend
 from schemas import Recognition, IngredientEstimate
+from tools.wine_pairing import load_wine_catalog, profile_dish, rank_wines
 
 st.set_page_config(page_title="HomeDish · your food, your way", page_icon="🍲", layout="wide", initial_sidebar_state="expanded")
 st.markdown("""
@@ -38,6 +40,7 @@ st.markdown("""
 h1{font-size:3.45rem!important;color:#182a27!important}h2{font-size:1.85rem!important}.eyebrow{color:#d85d45}.hero{background:linear-gradient(108deg,rgba(20,57,50,.98) 0%,rgba(24,72,61,.92) 52%,rgba(24,72,61,.67) 100%),url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1500&q=80') center/cover;border-radius:18px;padding:45px 48px;min-height:270px;box-shadow:0 18px 40px rgba(19,57,50,.16)}.hero h1{color:#fff!important;font-size:3.55rem!important}.hero p{color:#d8e5dd;max-width:560px}.hero .eyebrow{color:#f4c0a6}.section-label{margin:37px 0 15px;border-bottom:1px solid #dfe1dc;padding-bottom:10px}.section-label h2{color:#183d36!important;font-family:'DM Sans',sans-serif!important;font-size:1.2rem!important;font-weight:700;letter-spacing:-.02em}.section-label span{color:#d85d45;text-transform:uppercase;letter-spacing:.1em;font-size:10px}
 .recipe-card{border-radius:13px;background:#fffefa;border:1px solid #dedfd9;padding:17px;min-height:174px;box-shadow:0 8px 20px rgba(31,47,40,.045)}.recipe-card h3{font-family:'DM Sans',sans-serif!important;font-size:17px!important;color:#183d36!important}.recipe-card p{color:#77837c}.stImage img{border-radius:13px 13px 0 0;max-height:185px;object-fit:cover;filter:saturate(.94)}.stImage{margin-bottom:-10px}.tag{background:#e1eee6;color:#286454;border-radius:6px;padding:4px 7px}.stat{border-radius:12px;background:#fffefa;border-color:#dedfd9;box-shadow:0 8px 20px rgba(31,47,40,.035)}.planner-day{border-radius:12px;background:#fffefa;border-color:#dedfd9}.planner-day.active{border:2px solid #e4684e}.meal-pill{border-radius:6px}.meal-pill.green{background:#e1eee6;color:#286454}
 .stButton>button{background:#173f38;border-radius:8px;border:1px solid #173f38;box-shadow:none}.stButton>button:hover{background:#286454;color:#fff}.stDownloadButton>button,.stLinkButton>button{border-radius:8px;border:1px solid #b9cfc3;background:#fffefa;color:#173f38}.stTextInput input,.stNumberInput input,.stSelectbox div[data-baseweb="select"]>div{background:#fffefa;border-color:#d8ddd8;border-radius:8px}.stTabs [data-baseweb="tab"]{background:transparent;border-radius:6px;color:#68766e}.stTabs [aria-selected="true"]{background:#173f38!important;color:#fff!important}.recommendation-card{border-radius:14px;background:#fffefa;border-color:#dedfd9}.recommendation-change{background:#edf3ed;border-radius:8px}.tip{border-radius:10px}.ingredient-note{border-radius:10px}.how-about-card{border:1px solid #d7ded8;border-radius:15px;background:#fffefa;overflow:hidden;box-shadow:0 10px 24px rgba(31,47,40,.06);min-height:355px}.how-about-card h3{font-family:'DM Sans',sans-serif!important;color:#173f38!important;font-size:19px!important;line-height:1.1;margin:0 0 8px}.how-about-body{padding:16px 17px 18px}.how-about-source{color:#d85d45;font-size:9px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:7px}.how-about-card p{color:#62726a;font-size:12px;line-height:1.5;margin:7px 0 11px}.how-about-label{color:#173f38;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-top:12px}.how-about-chip{display:inline-block;background:#e1eee6;color:#286454;border-radius:99px;padding:5px 8px;font-size:10px;margin:4px 4px 0 0}.how-about-angle{background:#f2f4ee;border-left:3px solid #e4684e;border-radius:0 8px 8px 0;padding:9px 10px;color:#52625a;font-size:11px;line-height:1.45;margin-top:6px}
+.wine-style-card{border:1px solid #705a39;border-radius:16px;background:linear-gradient(135deg,#2c241d,#1b2020);padding:18px 20px;margin:16px 0 20px;box-shadow:0 12px 28px rgba(0,0,0,.16)}.wine-style-kicker{color:#d7fa72;font-size:10px;text-transform:uppercase;letter-spacing:.15em;font-weight:800}.wine-style-card h3{color:#f7e6bc!important;font-size:24px!important;margin:8px 0 7px}.wine-style-card p{color:#c9c0b3;font-size:12px;line-height:1.55;margin:0}.wine-card{border:1px solid #493c32;border-radius:16px;background:linear-gradient(145deg,#241f1d,#171b1b);min-height:300px;padding:19px;box-shadow:0 14px 30px rgba(0,0,0,.14)}.wine-card h3{color:#f7e6bc!important;font-family:'DM Sans',sans-serif!important;font-size:18px!important;line-height:1.1;margin:8px 0}.wine-card p{color:#bcb6ad;font-size:12px;line-height:1.5}.wine-card-meta{color:#9bded2;font-size:10px;letter-spacing:.06em;text-transform:uppercase}.wine-rating{color:#d7fa72;font-weight:700;font-size:12px;margin:8px 0}.wine-chip{display:inline-block;background:#3b3026;color:#f0d29d;border:1px solid #66503b;border-radius:99px;padding:5px 8px;font-size:10px;margin:3px 4px 0 0}.wine-why{border-left:3px solid #8dd6f6;background:#282525;border-radius:0 8px 8px 0;padding:9px 10px;color:#d8dfdb;font-size:11px;line-height:1.45;margin-top:10px}
 </style>
 """, unsafe_allow_html=True)
 
@@ -226,6 +229,7 @@ def add_recipe_ids(recipes):
     return recipes
 
 LIBRARY=add_recipe_ids(RECIPES+load_source_recipes())
+WINE_CATALOG=load_wine_catalog()
 NAV_PAGES=["Home","Discover","Photo check","Meal planner","Cook mode","Pantry","Grocery list","Recipe box"]
 def init_state():
     for key,value in {"page":"Home","nav_page":"Home","nav_target":None,"planned":{"Mon":"Harissa salmon couscous","Wed":"Green shakshuka","Fri":"Dal with roasted cauliflower"},"pantry":["olive oil","garlic","rice","soy sauce"],"selected_recipe":None,"cooked_steps":[],"testimonial_index":0}.items(): st.session_state.setdefault(key,value)
@@ -352,6 +356,21 @@ def render_recipe_recommendation(recommendation, recipe, key):
     if st.button("Plan it",key=f"how_about_plan_{key}",use_container_width=True):
         st.session_state.planned["Tue"]=recipe["name"]
         st.toast(f'{recipe["name"]} added to Tuesday')
+
+def render_wine_pairing(explanation, wine, key):
+    name=html.escape(str(wine.get("name","Wine")))
+    wine_type=html.escape(str(wine.get("type","Wine")))
+    grapes=html.escape(", ".join(str(grape) for grape in wine.get("grapes",[])[:3]) or "grape not listed")
+    body=html.escape(str(wine.get("body","Body not listed")))
+    acidity=html.escape(str(wine.get("acidity","Acidity not listed")))
+    region=html.escape(" · ".join(str(item) for item in [wine.get("region"),wine.get("country")] if item))
+    matched="".join(f'<span class="wine-chip">{html.escape(str(item))}</span>' for item in wine.get("matched_pairings",[]))
+    rating=float(wine.get("rating") or 0)
+    rating_text=f"★ {rating:.2f} · {int(wine.get('rating_count') or 0)} ratings" if rating else "Rating not available in this catalog sample"
+    st.markdown(f'<div class="wine-card"><div class="wine-card-meta">{wine_type} · {body} · {acidity}</div><h3>{name}</h3><p>{grapes}{f"<br>{region}" if region else ""}</p><div class="wine-rating">{rating_text}</div><div class="how-about-label" style="color:#f0d29d">Listed food matches</div><div>{matched or "<span class=\"wine-chip\">style match</span>"}</div><div class="wine-why">{html.escape(explanation.explanation)}</div></div>',unsafe_allow_html=True)
+    link=wine.get("website") or wine.get("source_url")
+    if link:
+        st.link_button("Open winery / source ↗",link,use_container_width=True)
 
 def planner_strip():
     cols=st.columns(7)
@@ -497,14 +516,16 @@ else:
         st.markdown('<div class="tip">Every gram stays editable. Items we could not match to USDA will be clearly marked rather than silently counted.</div>',unsafe_allow_html=True)
         if st.button("Calculate nutrition & swaps →",use_container_width=True):
             try:
-                b=Budget(); items=[IngredientEstimate.model_validate(x) for x in edited] if edited and all_estimates else []; ms=match(items,b); matched_ingredients=[m.model_dump() for m in ms]; counted=[m for m in matched_ingredients if m.get("fdc_id")]; n=calculate_with_backend(counted,r.servings_estimate); s=suggest(r.dish_name,r.cuisine,matched_ingredients,n,goal,constraints,b); checks=[critic(v,constraints) for v in s.versions[:2]]; recipe_recommendations=recommend_recipes(LIBRARY,matched_ingredients,r.dish_name,r.cuisine,goal,constraints,b); st.session_state.result=(ms,n,s,checks,recipe_recommendations,b)
+                b=Budget(); items=[IngredientEstimate.model_validate(x) for x in edited] if edited and all_estimates else []; ms=match(items,b); matched_ingredients=[m.model_dump() for m in ms]; counted=[m for m in matched_ingredients if m.get("fdc_id")]; n=calculate_with_backend(counted,r.servings_estimate); s=suggest(r.dish_name,r.cuisine,matched_ingredients,n,goal,constraints,b); checks=[critic(v,constraints) for v in s.versions[:2]]; recipe_recommendations=recommend_recipes(LIBRARY,matched_ingredients,r.dish_name,r.cuisine,goal,constraints,b); wine_profile=profile_dish(r.dish_name,r.cuisine,matched_ingredients,n); wine_candidates=rank_wines(WINE_CATALOG,wine_profile,limit=3); wine_pairings=explain_pairings(wine_profile,wine_candidates,b); st.session_state.result=(ms,n,s,checks,recipe_recommendations,wine_profile,wine_candidates,wine_pairings,b)
             except Exception as e: st.error(f"Calculation failed: {e}")
     if "result" in st.session_state:
         result_data=st.session_state.result
         if len(result_data)==5:
-            ms,n,s,checks,b=result_data; recipe_recommendations=[]
+            ms,n,s,checks,b=result_data; recipe_recommendations=[]; wine_profile=None; wine_candidates=[]; wine_pairings=[]
+        elif len(result_data)==6:
+            ms,n,s,checks,recipe_recommendations,b=result_data; wine_profile=None; wine_candidates=[]; wine_pairings=[]
         else:
-            ms,n,s,checks,recipe_recommendations,b=result_data
+            ms,n,s,checks,recipe_recommendations,wine_profile,wine_candidates,wine_pairings,b=result_data
         visible_versions=s.versions[:2]
         st.markdown('<div class="section-label"><h2>Ways to lighten it</h2><span>gentle → balanced</span></div>',unsafe_allow_html=True); tabs=st.tabs([v.title for v in visible_versions])
         for index,(tab,v,c) in enumerate(zip(tabs,visible_versions,checks)):
@@ -522,4 +543,19 @@ else:
                     with col: render_recipe_recommendation(recommendation,recipe,recommendation.recipe_id.replace(":","_"))
         else:
             st.info("We could not find three linkable recipes with enough ingredient overlap for this dish yet. Try confirming a few more ingredient names above.")
+        st.markdown('<div class="section-label"><h2>What wine do I pair it with?</h2><span>rules first · explanation second</span></div>',unsafe_allow_html=True)
+        if wine_profile and wine_pairings:
+            rationale=" · ".join(wine_profile.rationale[:2])
+            tags="".join(f'<span class="wine-chip">{html.escape(str(tag))}</span>' for tag in wine_profile.pairing_tags)
+            st.markdown(f'<div class="wine-style-card"><div class="wine-style-kicker">Dish profile → target style</div><h3>{html.escape(wine_profile.target_style)}</h3><p>{html.escape(rationale)}</p><div style="margin-top:10px">{tags}</div></div>',unsafe_allow_html=True)
+            wine_by_id={str(wine.get("id")):wine for wine in wine_candidates}
+            wine_cols=st.columns(3,gap="large")
+            for col,explanation in zip(wine_cols,wine_pairings[:3]):
+                wine=wine_by_id.get(explanation.wine_id)
+                if wine:
+                    with col: render_wine_pairing(explanation,wine,explanation.wine_id.replace(":","_"))
+        elif WINE_CATALOG:
+            st.info("Wine pairing will appear after the dish calculation is complete.")
+        else:
+            st.info("The wine catalog is not available yet. Run data/import_xwines.py to build it.")
         st.sidebar.metric("LLM calls",b.calls); st.sidebar.metric("Measured cost",f"${b.cost_usd:.4f}")

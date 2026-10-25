@@ -1,0 +1,2620 @@
+[
+  {
+    "id": "xwines:100062",
+    "name": "Origem Merlot",
+    "type": "Red",
+    "grapes": [
+      "Merlot"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Veal",
+      "Grilled",
+      "Pizza",
+      "Pasta"
+    ],
+    "abv": 13.0,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Brazil",
+    "region": "Vale dos Vinhedos",
+    "winery": "Casa Valduga",
+    "website": "http://www.casavalduga.com.br",
+    "rating": 4.12,
+    "rating_count": 21,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:100191",
+    "name": "Reserva Chardonnay",
+    "type": "White",
+    "grapes": [
+      "Chardonnay"
+    ],
+    "harmonize": [
+      "Rich Fish",
+      "Seafood",
+      "Risotto",
+      "Poultry",
+      "Vegetarian"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Brazil",
+    "region": "Serra Gaúcha",
+    "winery": "Aurora",
+    "website": "http://www.vinicolaaurora.com.br",
+    "rating": 3.32,
+    "rating_count": 22,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:101847",
+    "name": "Dona Antonia Porto Reserva Tawny",
+    "type": "Dessert/Port",
+    "grapes": [
+      "Touriga Nacional",
+      "Touriga Franca",
+      "Tinta Barroca",
+      "Tinta Amarela"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Sweet Dessert",
+      "Blue Cheese"
+    ],
+    "abv": 20.0,
+    "body": "Very full-bodied",
+    "acidity": "High",
+    "country": "Portugal",
+    "region": "Porto",
+    "winery": "Porto Ferreira",
+    "website": "https://sogrape.com/pt/brand/porto-ferreira",
+    "rating": 3.81,
+    "rating_count": 21,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:102055",
+    "name": "Fine Ruby Port",
+    "type": "Dessert/Port",
+    "grapes": [
+      "Tinta Amarela",
+      "Tinta Barroca",
+      "Touriga Franca",
+      "Tinta Roriz",
+      "Tinto Cão"
+    ],
+    "harmonize": [
+      "Sweet Dessert",
+      "Cake",
+      "Fruit",
+      "Soft Cheese"
+    ],
+    "abv": 19.5,
+    "body": "Very full-bodied",
+    "acidity": "Medium",
+    "country": "Portugal",
+    "region": "Porto",
+    "winery": "Sandeman",
+    "website": "http://www.sandeman.com",
+    "rating": 3.58,
+    "rating_count": 25,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:102079",
+    "name": "Maré Alta",
+    "type": "White",
+    "grapes": [
+      "Loureiro",
+      "Alvarinho",
+      "Arinto"
+    ],
+    "harmonize": [
+      "Fish",
+      "Shellfish",
+      "Vegetarian",
+      "Appetizer",
+      "Snack"
+    ],
+    "abv": 10.0,
+    "body": "Very light-bodied",
+    "acidity": "High",
+    "country": "Portugal",
+    "region": "Vinho Verde",
+    "winery": "Fonte Pequena",
+    "website": "https://www.casadafontepequena.pt",
+    "rating": 4.28,
+    "rating_count": 9,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:102645",
+    "name": "Terras de Felgueiras Espumante de Vinho Verde Seco Branco",
+    "type": "Sparkling",
+    "grapes": [
+      "Loureiro",
+      "Arinto",
+      "Trajadura",
+      "Azal Branco"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Rich Fish",
+      "Shellfish",
+      "Soft Cheese"
+    ],
+    "abv": 11.5,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Portugal",
+    "region": "Vinho Verde",
+    "winery": "Cooperativa Agricola de Felgueiras",
+    "website": "http://www.vercoope.pt",
+    "rating": 3.6,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:102902",
+    "name": "Pátria Alentejo Selection Reserva",
+    "type": "Red",
+    "grapes": [
+      "Alicante Bouschet",
+      "Aragonez",
+      "Trincadeira"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Veal",
+      "Game Meat",
+      "Maturated Cheese"
+    ],
+    "abv": 14.5,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Portugal",
+    "region": "Alentejo",
+    "winery": "Carmim",
+    "website": "http://www.carmim.eu",
+    "rating": 4.3,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:103003",
+    "name": "Além do Rio Branco",
+    "type": "White",
+    "grapes": [
+      "Malvasia",
+      "Seara Nova",
+      "Arinto",
+      "Fernão Pires"
+    ],
+    "harmonize": [
+      "Pasta",
+      "Grilled",
+      "Shellfish",
+      "Lean Fish"
+    ],
+    "abv": 9.5,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Portugal",
+    "region": "Lisboa",
+    "winery": "Azueira",
+    "website": "http://www.adegadeazueira.com",
+    "rating": 4.07,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:103070",
+    "name": "Calda Bordaleza Tinto",
+    "type": "Red",
+    "grapes": [
+      "Cabernet Sauvignon",
+      "Merlot",
+      "Petit Verdot"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 14.0,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Portugal",
+    "region": "Bairrada",
+    "winery": "Campolargo",
+    "website": "http://www.campolargovinhos.com",
+    "rating": 4.07,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:103433",
+    "name": "Regional Tinto",
+    "type": "Red",
+    "grapes": [
+      "Aragonez",
+      "Syrah/Shiraz"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 13.0,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Portugal",
+    "region": "Lisboa",
+    "winery": "Mundus",
+    "website": "http://www.mundus.pt",
+    "rating": 3.8,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:103435",
+    "name": "Lacrau Colheita Field Blend",
+    "type": "Red",
+    "grapes": [
+      "Touriga Franca",
+      "Touriga Nacional",
+      "Tinta Roriz",
+      "Tinta Barroca"
+    ],
+    "harmonize": [
+      "Beef",
+      "Pasta",
+      "Lamb",
+      "Game Meat"
+    ],
+    "abv": 13.5,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Portugal",
+    "region": "Douro",
+    "winery": "Secret Spot Wines",
+    "website": "http://www.secretspotwines.com",
+    "rating": 3.86,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:103667",
+    "name": "Maria Izabel Rosé",
+    "type": "Rosé",
+    "grapes": [
+      "Tinta Roriz",
+      "Tinta Francisca",
+      "Touriga Nacional"
+    ],
+    "harmonize": [
+      "Beef",
+      "Tomato Dishes",
+      "Maturated Cheese",
+      "Hard Cheese"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Portugal",
+    "region": "Douro",
+    "winery": "Quinta Maria Izabel",
+    "website": "http://www.quintamariaizabel.pt",
+    "rating": 4.0,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:105585",
+    "name": "Terras de Basto Tinto",
+    "type": "Red",
+    "grapes": [
+      "Azal Tinto",
+      "Vinhão",
+      "Padeiro"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 10.5,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Portugal",
+    "region": "Vinho Verde",
+    "winery": "Quinta de Soutelos",
+    "website": "http://www.quintadesoutelos.pt",
+    "rating": 3.38,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:105599",
+    "name": "Primata Touriga Nacional",
+    "type": "Red",
+    "grapes": [
+      "Tinta Amarela",
+      "Touriga Franca",
+      "Tinta Roriz",
+      "Tinto Cão",
+      "Touriga Nacional"
+    ],
+    "harmonize": [
+      "Poultry",
+      "Light Stews",
+      "Salad",
+      "Snack"
+    ],
+    "abv": 11.2,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Portugal",
+    "region": "Douro",
+    "winery": "Niepoort",
+    "website": "https://www.niepoort-vinhos.com",
+    "rating": 3.57,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:105748",
+    "name": "Porto Colheita",
+    "type": "Dessert/Port",
+    "grapes": [
+      "Touriga Nacional",
+      "Touriga Franca",
+      "Tinta Roriz"
+    ],
+    "harmonize": [
+      "Sweet Dessert",
+      "Cake",
+      "Fruit",
+      "Soft Cheese"
+    ],
+    "abv": 20.0,
+    "body": "Very full-bodied",
+    "acidity": "Medium",
+    "country": "Portugal",
+    "region": "Porto",
+    "winery": "Quinta do Portal",
+    "website": "http://www.quintadoportal.com",
+    "rating": 3.83,
+    "rating_count": 9,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:105911",
+    "name": "White Reserve Porto",
+    "type": "Dessert/Port",
+    "grapes": [
+      "Rabigato",
+      "Viosinho",
+      "Malvasia Fina",
+      "Côdega de Larinho"
+    ],
+    "harmonize": [
+      "Aperitif",
+      "Sweet Dessert",
+      "Blue Cheese"
+    ],
+    "abv": 19.5,
+    "body": "Very full-bodied",
+    "acidity": "Medium",
+    "country": "Portugal",
+    "region": "Douro",
+    "winery": "Bulas",
+    "website": "http://bulas.eu",
+    "rating": 3.57,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:107214",
+    "name": "Black Label Nik Weis Saar Riesling",
+    "type": "White",
+    "grapes": [
+      "Riesling"
+    ],
+    "harmonize": [
+      "Pork",
+      "Shellfish",
+      "Spicy Food",
+      "Poultry",
+      "Cured Meat"
+    ],
+    "abv": 11.5,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Germany",
+    "region": "Mosel",
+    "winery": "Weingut Nik Weis-St. Urbans-Hof",
+    "website": "http://www.urbans-hof.de",
+    "rating": 3.79,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:108974",
+    "name": "Felix Lemberger Trocken",
+    "type": "Red",
+    "grapes": [
+      "Lemberger"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Lamb",
+      "Barbecue"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Germany",
+    "region": "Württemberg",
+    "winery": "Wachtstetter",
+    "website": "http://www.wachtstetter.de",
+    "rating": 3.83,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:109954",
+    "name": "Merlot Reserve Trocken",
+    "type": "Red",
+    "grapes": [
+      "Merlot"
+    ],
+    "harmonize": [
+      "Pork",
+      "Beef",
+      "Game Meat",
+      "Maturated Cheese"
+    ],
+    "abv": 13.5,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Germany",
+    "region": "Württemberg",
+    "winery": "Aldinger",
+    "website": "http://www.weingut-aldinger.de",
+    "rating": 4.25,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:111478",
+    "name": "Sauternes (Premier Grand Cru Classé)",
+    "type": "Dessert",
+    "grapes": [
+      "Sémillon",
+      "Sauvignon Blanc"
+    ],
+    "harmonize": [
+      "Fruit Dessert",
+      "Blue Cheese"
+    ],
+    "abv": 13.5,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Sauternes",
+    "winery": "Château Suduiraut",
+    "website": "http://www.suduiraut.com",
+    "rating": 4.14,
+    "rating_count": 22,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:112875",
+    "name": "Vieille Vigne Gevrey-Chambertin",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "France",
+    "region": "Gevrey-Chambertin",
+    "winery": "Domaine Fourrier",
+    "website": "https://domainefourrier.pagesperso-orange.fr",
+    "rating": 4.36,
+    "rating_count": 22,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:113730",
+    "name": "Pommard Premier Cru 'Grand Clos des Épenots'",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "France",
+    "region": "Pommard",
+    "winery": "Domaine de Courcel",
+    "website": "http://www.domainedecourcel-pommard.fr",
+    "rating": 4.02,
+    "rating_count": 21,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:114717",
+    "name": "Coteaux d'Aix-en-Provence Rosé",
+    "type": "Rosé",
+    "grapes": [
+      "Syrah/Shiraz",
+      "Cinsault",
+      "Grenache"
+    ],
+    "harmonize": [
+      "Seafood",
+      "Shellfish",
+      "Vegetarian",
+      "Poultry",
+      "Tomato Dishes"
+    ],
+    "abv": 13.0,
+    "body": "Light-bodied",
+    "acidity": "Medium",
+    "country": "France",
+    "region": "Provence",
+    "winery": "Moonlight & Roses",
+    "website": "https://moonlightandroses.fr",
+    "rating": 3.43,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:114973",
+    "name": "Sancerre Les Baronnes Rosé",
+    "type": "Rosé",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Aperitif",
+      "Snack",
+      "Salad",
+      "Vegetarian"
+    ],
+    "abv": 13.5,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "France",
+    "region": "Sancerre",
+    "winery": "Henri Bourgeois",
+    "website": "http://www.henribourgeois.com",
+    "rating": 3.69,
+    "rating_count": 16,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:115171",
+    "name": "Pessac-Léognan",
+    "type": "Red",
+    "grapes": [
+      "Merlot",
+      "Cabernet Sauvignon",
+      "Petit Verdot"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Lamb",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 13.0,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Pessac-Léognan",
+    "winery": "Château Pontet-Caillou",
+    "website": "http://www.gie-bordeaux.com",
+    "rating": 3.72,
+    "rating_count": 9,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:116418",
+    "name": "Château Chemin Royal Moulis-en-Médoc",
+    "type": "Red",
+    "grapes": [
+      "Merlot",
+      "Cabernet Sauvignon"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 13.8,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Moulis-en-Médoc",
+    "winery": "Château Fonréaud",
+    "website": "http://www.chateau-fonreaud.com",
+    "rating": 3.05,
+    "rating_count": 10,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:117009",
+    "name": "Santenay Rouge",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 13.0,
+    "body": "Light-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Santenay",
+    "winery": "Louis Latour",
+    "website": "http://www.louislatour.com",
+    "rating": 3.77,
+    "rating_count": 11,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:118457",
+    "name": "Fleurie La Madone",
+    "type": "Red",
+    "grapes": [
+      "Gamay Noir"
+    ],
+    "harmonize": [
+      "Pasta",
+      "Beef",
+      "Veal",
+      "Lamb",
+      "Maturated Cheese"
+    ],
+    "abv": 13.0,
+    "body": "Light-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Fleurie",
+    "winery": "Albert Bichot",
+    "website": "http://www.bourgogne-bichot.com",
+    "rating": 3.58,
+    "rating_count": 12,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:118927",
+    "name": "Nuits-St-Georges Les Plateaux",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Nuits-Saint-Georges",
+    "winery": "Mongeard-Mugneret",
+    "website": "http://www.mongeard.com",
+    "rating": 4.07,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:119803",
+    "name": "Cinsault-Grenache Rosé",
+    "type": "Rosé",
+    "grapes": [
+      "Grenache",
+      "Cinsault"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Snack",
+      "Pasta",
+      "Vegetarian",
+      "Chicken"
+    ],
+    "abv": 12.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Vin de France",
+    "winery": "La Francette",
+    "website": "https://vins.maisonjohanesboubee.fr/4420D3ESRC",
+    "rating": 2.89,
+    "rating_count": 9,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:120737",
+    "name": "Les Dessous des Dentelles",
+    "type": "Red",
+    "grapes": [
+      "Grenache",
+      "Mourvedre",
+      "Syrah/Shiraz"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat"
+    ],
+    "abv": 14.3,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "France",
+    "region": "Gigondas",
+    "winery": "Château La Croix des Pins",
+    "website": "http://www.chateaulacroixdespins.com",
+    "rating": 3.8,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:125678",
+    "name": "Les Fuées Chambolle-Musigny 1er Cru",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 13.0,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Chambolle-Musigny",
+    "winery": "Domaine Faiveley",
+    "website": "http://www.domaine-faiveley.com",
+    "rating": 3.92,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:126285",
+    "name": "Lou Mansengou",
+    "type": "Dessert",
+    "grapes": [
+      "Petit Manseng"
+    ],
+    "harmonize": [
+      "Rich Fish",
+      "Fruit Dessert",
+      "Vegetarian",
+      "Poultry",
+      "Soft Cheese"
+    ],
+    "abv": 12.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Jurançon",
+    "winery": "Domaine Larroudé",
+    "website": "http://www.domaine-larroude.com",
+    "rating": 3.43,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:126510",
+    "name": "Cabardès Rosé",
+    "type": "Rosé",
+    "grapes": [
+      "Cabernet Franc",
+      "Grenache",
+      "Cinsault",
+      "Syrah/Shiraz"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Snack",
+      "Pasta",
+      "Chicken",
+      "Vegetarian"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Cabardès",
+    "winery": "Château Jouclary",
+    "website": "http://www.chateau-jouclary.com",
+    "rating": 3.38,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:127658",
+    "name": "Marc d'Alsace Riesling",
+    "type": "Dessert",
+    "grapes": [
+      "Riesling"
+    ],
+    "harmonize": [
+      "Pork",
+      "Rich Fish",
+      "Spicy Food",
+      "Vegetarian",
+      "Cured Meat"
+    ],
+    "abv": 48.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "France",
+    "region": "Alsace",
+    "winery": "Gerard Schueller",
+    "website": "https://www.larvf.com/domaine-gerard-schueller-et-fils,10439,400778.asp",
+    "rating": 3.93,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:128544",
+    "name": "Chablis 1er Cru 'Montmains'",
+    "type": "White",
+    "grapes": [
+      "Chardonnay"
+    ],
+    "harmonize": [
+      "Pork",
+      "Rich Fish",
+      "Shellfish",
+      "Soft Cheese"
+    ],
+    "abv": 12.5,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "France",
+    "region": "Chablis 1er Cru 'Montmains'",
+    "winery": "J. Moreau & Fils",
+    "website": "http://www.jmoreau-fils.com",
+    "rating": 3.19,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:132977",
+    "name": "Bandol Cuvée Spéciale La Louffe",
+    "type": "Red",
+    "grapes": [
+      "Mourvedre",
+      "Grenache",
+      "Cinsault"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Lamb",
+      "Maturated Cheese",
+      "Hard Cheese"
+    ],
+    "abv": 14.0,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "France",
+    "region": "Bandol",
+    "winery": "Domaine Tempier",
+    "website": "http://domainetempier.com",
+    "rating": 4.0,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:133447",
+    "name": "Meursault 1er Cru 'La Pièce Sous Le Bois'",
+    "type": "White",
+    "grapes": [
+      "Chardonnay"
+    ],
+    "harmonize": [
+      "Pasta",
+      "Chicken",
+      "Rich Fish",
+      "Shellfish",
+      "Soft Cheese"
+    ],
+    "abv": 13.5,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "France",
+    "region": "Meursault 1er Cru 'La pièce sous le Bois'",
+    "winery": "Demessey",
+    "website": "http://www.manoirmurisaltien.com",
+    "rating": 3.86,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:138299",
+    "name": "Rosato",
+    "type": "Rosé",
+    "grapes": [
+      "Barbera",
+      "Dolcetto"
+    ],
+    "harmonize": [
+      "Fish",
+      "Tomato Dishes",
+      "Poultry",
+      "Mushrooms",
+      "Blue Cheese"
+    ],
+    "abv": 12.0,
+    "body": "Light-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Piemonte",
+    "winery": "Enzo Bartoli",
+    "website": "https://www.enzobartoli.com",
+    "rating": 3.69,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:138622",
+    "name": "Ricarico Prestige Cuvée",
+    "type": "Red",
+    "grapes": [
+      "Primitivo",
+      "Negroamaro"
+    ],
+    "harmonize": [
+      "Beef",
+      "Pasta",
+      "Lamb",
+      "Game Meat",
+      "Grilled",
+      "Maturated Cheese"
+    ],
+    "abv": 14.5,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Puglia",
+    "winery": "Giordano",
+    "website": "http://www.giordanowines.com",
+    "rating": 3.75,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:138625",
+    "name": "Nicolon Barbera d'Alba",
+    "type": "Red",
+    "grapes": [
+      "Barbera"
+    ],
+    "harmonize": [
+      "Pasta",
+      "Veal",
+      "Pork",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 14.5,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Barbera d'Alba",
+    "winery": "Angelo Negro",
+    "website": "https://www.angelonegro.it",
+    "rating": 3.62,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:138765",
+    "name": "Langhe Nebbiolo",
+    "type": "Red",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 14.0,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Langhe",
+    "winery": "Cascina Ballarin",
+    "website": "http://www.cascinaballarin.com",
+    "rating": 3.5,
+    "rating_count": 11,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:139210",
+    "name": "Al Poggio Chardonnay di Toscana",
+    "type": "White",
+    "grapes": [
+      "Chardonnay"
+    ],
+    "harmonize": [
+      "Pasta",
+      "Vegetarian",
+      "Appetizer",
+      "Snack",
+      "Lean Fish",
+      "Cured Meat"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Toscana",
+    "winery": "Castello di Ama",
+    "website": "http://www.castellodiama.com",
+    "rating": 3.57,
+    "rating_count": 15,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:139388",
+    "name": "Gabbiano Pinot Grigio",
+    "type": "White",
+    "grapes": [
+      "Pinot Grigio",
+      "Chardonnay"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Shellfish",
+      "Pasta",
+      "Vegetarian",
+      "Mushrooms"
+    ],
+    "abv": 12.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Delle Venezie",
+    "winery": "Cavaliere d'Oro",
+    "website": "https://www.cavalieredoro.com",
+    "rating": 3.43,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:139693",
+    "name": "Zinfandel",
+    "type": "Red",
+    "grapes": [
+      "Zinfandel"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Lamb",
+      "Pasta"
+    ],
+    "abv": 14.0,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Puglia",
+    "winery": "Masseria Trajone",
+    "website": "https://www.femarvini.com/en/brand-en/masseria-trajone.html",
+    "rating": 3.6,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:140114",
+    "name": "La Primavera in Rosa Rosé Italia",
+    "type": "Rosé",
+    "grapes": [
+      "Negroamaro",
+      "Merlot",
+      "Refosco"
+    ],
+    "harmonize": [
+      "Aperitif",
+      "Beef",
+      "Pasta",
+      "Seafood",
+      "Shellfish",
+      "Salad"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Vino d'Italia",
+    "winery": "Grande Alberone",
+    "website": "http://www.grandealberone.it",
+    "rating": 3.67,
+    "rating_count": 9,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:140262",
+    "name": "Müller Thurgau Alto Adige",
+    "type": "White",
+    "grapes": [
+      "Müller-Thurgau"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Snack",
+      "Risotto",
+      "Seafood",
+      "Vegetarian"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Südtirol-Alto Adige",
+    "winery": "Kettmeir",
+    "website": "http://www.kettmeir.com",
+    "rating": 3.85,
+    "rating_count": 13,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:140962",
+    "name": "Riserva Prêt-A-Porter",
+    "type": "Red",
+    "grapes": [
+      "Corvina",
+      "Corvinone",
+      "Rondinella",
+      "Molinara"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat",
+      "Blue Cheese"
+    ],
+    "abv": 15.5,
+    "body": "Very full-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Amarone della Valpolicella",
+    "winery": "Bottega",
+    "website": "http://www.bottegaspa.com",
+    "rating": 4.33,
+    "rating_count": 9,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:141193",
+    "name": "Brachetto d'Acqui",
+    "type": "Sparkling",
+    "grapes": [
+      "Brachetto"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Snack",
+      "Fruit",
+      "Cake",
+      "Cream"
+    ],
+    "abv": 6.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Brachetto d'Acqui",
+    "winery": "Il Falchetto",
+    "website": "http://www.ilfalchetto.com",
+    "rating": 4.67,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:142170",
+    "name": "Torgaio Toscana",
+    "type": "Red",
+    "grapes": [
+      "Sangiovese",
+      "Merlot",
+      "Alicante Bouschet",
+      "Petit Verdot"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Veal",
+      "Poultry",
+      "Cured Meat"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Toscana",
+    "winery": "Ruffino",
+    "website": "http://www.ruffino.it",
+    "rating": 3.71,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:143222",
+    "name": "Dulcis Moscato d'Asti",
+    "type": "Dessert",
+    "grapes": [
+      "Muscat/Moscato"
+    ],
+    "harmonize": [
+      "Fruit Dessert",
+      "Appetizer",
+      "Cake"
+    ],
+    "abv": 5.5,
+    "body": "Light-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Moscato d'Asti",
+    "winery": "San Silvestro",
+    "website": "http://www.sansilvestrovini.com",
+    "rating": 3.7,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:143800",
+    "name": "Narin Barbaresco",
+    "type": "Red",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "harmonize": [
+      "Beef",
+      "Pasta",
+      "Lamb",
+      "Game Meat"
+    ],
+    "abv": 14.5,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Barbaresco",
+    "winery": "Carlo Giacosa",
+    "website": "http://www.carlogiacosa.it",
+    "rating": 4.07,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:143806",
+    "name": "Solatio Moscato d'Asti",
+    "type": "White",
+    "grapes": [
+      "Muscat/Moscato"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Fruit Dessert",
+      "Soft Cheese"
+    ],
+    "abv": 5.0,
+    "body": "Light-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Asti",
+    "winery": "Roberto Sarotto",
+    "website": "http://www.robertosarotto.com",
+    "rating": 3.9,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:144081",
+    "name": "Barbera d'Alba",
+    "type": "Red",
+    "grapes": [
+      "Barbera"
+    ],
+    "harmonize": [
+      "Pasta",
+      "Veal",
+      "Pork",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 15.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Barbera d'Alba",
+    "winery": "Filippo Gallino",
+    "website": "http://www.filippogallino.com",
+    "rating": 3.81,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:147123",
+    "name": "Belcaro Vin Santo del Chianti Classico",
+    "type": "Dessert",
+    "grapes": [
+      "Trebbiano",
+      "Malvasia"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Pork",
+      "Spicy Food"
+    ],
+    "abv": 15.5,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Vin Santo del Chianti Classico",
+    "winery": "San Felice",
+    "website": "http://www.agricolasanfelice.it",
+    "rating": 3.9,
+    "rating_count": 10,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:147453",
+    "name": "Bardolino Classico",
+    "type": "Red",
+    "grapes": [
+      "Corvina",
+      "Rondinella",
+      "Molinara"
+    ],
+    "harmonize": [
+      "Pasta",
+      "Poultry",
+      "Soft Cheese"
+    ],
+    "abv": 12.5,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Bardolino Classico",
+    "winery": "Carlo Zenegaglia",
+    "website": "http://www.carlozenegaglia.com",
+    "rating": 2.71,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:149407",
+    "name": "Langhe Chardonnay",
+    "type": "White",
+    "grapes": [
+      "Chardonnay"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Pizza",
+      "Lean Fish",
+      "Maturated Cheese",
+      "Cured Meat"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Italy",
+    "region": "Langhe",
+    "winery": "Mustela",
+    "website": "https://www.vinimustela.com",
+    "rating": 3.79,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:149550",
+    "name": "Barolo Riserva",
+    "type": "Red",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "harmonize": [
+      "Beef",
+      "Pasta",
+      "Lamb",
+      "Game Meat",
+      "Hard Cheese"
+    ],
+    "abv": 14.5,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Barolo",
+    "winery": "Cascina Ghercina",
+    "website": "https://www.cascinaghercina.com",
+    "rating": 3.62,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:149765",
+    "name": "Barolo",
+    "type": "Red",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "harmonize": [
+      "Beef",
+      "Pasta",
+      "Lamb",
+      "Game Meat"
+    ],
+    "abv": 14.0,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Barolo",
+    "winery": "Francesco Scanavino",
+    "website": "http://www.francescoscanavino.com",
+    "rating": 3.93,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:150384",
+    "name": "Cerequio Barolo",
+    "type": "Red",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "harmonize": [
+      "Beef",
+      "Pasta",
+      "Lamb",
+      "Game Meat"
+    ],
+    "abv": 14.0,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Barolo",
+    "winery": "Saglietti Flavio",
+    "website": "http://www.sagliettiflavio.it",
+    "rating": 3.93,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:150820",
+    "name": "Fiano del Salento",
+    "type": "White",
+    "grapes": [
+      "Fiano"
+    ],
+    "harmonize": [
+      "Seafood",
+      "Vegetarian",
+      "Appetizer",
+      "Snack"
+    ],
+    "abv": 12.5,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Salento",
+    "winery": "Mottura",
+    "website": "http://motturavini.com",
+    "rating": 3.08,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:153611",
+    "name": "Manzoni Moscato Spumante",
+    "type": "Sparkling",
+    "grapes": [
+      "Raboso Piave",
+      "Muscat of Hamburg"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Snack",
+      "Lean Fish",
+      "Fruit"
+    ],
+    "abv": 11.5,
+    "body": "Light-bodied",
+    "acidity": "High",
+    "country": "Italy",
+    "region": "Veneto",
+    "winery": "Bonotto delle Tezze",
+    "website": "http://www.bonottodelletezze.it",
+    "rating": 4.08,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:154979",
+    "name": "Fior di Vigna Dolce Rosso",
+    "type": "Dessert",
+    "grapes": [
+      "Brachetto"
+    ],
+    "harmonize": [
+      "Chocolate",
+      "Sweet Dessert",
+      "Fruit"
+    ],
+    "abv": 4.0,
+    "body": "Full-bodied",
+    "acidity": "Low",
+    "country": "Italy",
+    "region": "Langhe",
+    "winery": "Vallebelbo",
+    "website": "http://www.vallebelbo.it",
+    "rating": 3.0,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:160271",
+    "name": "Rare Cream Sherry Superior (Solera Reserva)",
+    "type": "Dessert/Port",
+    "grapes": [
+      "Palomino",
+      "Pedro Ximenez"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Snack",
+      "Fruit Dessert",
+      "Maturated Cheese",
+      "Hard Cheese"
+    ],
+    "abv": 20.0,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "Spain",
+    "region": "Cream Sherry",
+    "winery": "Lustau",
+    "website": "http://www.lustau.es",
+    "rating": 3.92,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:160277",
+    "name": "Fino Eléctrico 3 Fases",
+    "type": "Dessert",
+    "grapes": [
+      "Pedro Ximenez"
+    ],
+    "harmonize": [
+      "Sweet Dessert",
+      "Lean Fish",
+      "Cold Cuts",
+      "Blue Cheese"
+    ],
+    "abv": 15.0,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Spain",
+    "region": "Montilla-Moriles",
+    "winery": "Toro Albalá",
+    "website": "http://www.toroalbala.com",
+    "rating": 3.75,
+    "rating_count": 10,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:162391",
+    "name": "La Tinaja de Aranzazu",
+    "type": "White",
+    "grapes": [
+      "Albariño"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Snack",
+      "Vegetarian",
+      "Pasta",
+      "Shellfish",
+      "Lean Fish"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Spain",
+    "region": "Rías Baixas",
+    "winery": "Nanclares y Prieto",
+    "website": "http://www.nanclaresyprieto.es",
+    "rating": 4.0,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:162507",
+    "name": "Coyam",
+    "type": "Red",
+    "grapes": [
+      "Syrah/Shiraz",
+      "Petit Verdot",
+      "Carmenère",
+      "Garnacha",
+      "Cabernet Sauvignon",
+      "Carignan/Cariñena",
+      "Malbec",
+      "Tempranillo",
+      "Mourvedre"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Pork",
+      "Game Meat",
+      "Maturated Cheese",
+      "Hard Cheese"
+    ],
+    "abv": 14.0,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "Chile",
+    "region": "Colchagua Valley",
+    "winery": "Emiliana",
+    "website": "http://www.emiliana.cl",
+    "rating": 4.21,
+    "rating_count": 19,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:163101",
+    "name": "Las Mulas Reserva Sauvignon Blanc",
+    "type": "White",
+    "grapes": [
+      "Sauvignon Blanc"
+    ],
+    "harmonize": [
+      "Shellfish",
+      "Vegetarian",
+      "Goat Cheese"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Chile",
+    "region": "Central Valley (CL)",
+    "winery": "Miguel Torres Chile",
+    "website": "http://www.migueltorres.cl",
+    "rating": 3.22,
+    "rating_count": 18,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:163876",
+    "name": "El Espiritu de Cachapoal Brut",
+    "type": "Sparkling",
+    "grapes": [
+      "Chardonnay"
+    ],
+    "harmonize": [
+      "Grilled",
+      "Salad",
+      "Chicken",
+      "Seafood",
+      "Shellfish"
+    ],
+    "abv": 13.0,
+    "body": "Light-bodied",
+    "acidity": "High",
+    "country": "Chile",
+    "region": "Cachapoal Valley",
+    "winery": "Château Los Boldos",
+    "website": "http://www.clboldos.cl",
+    "rating": 3.94,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:165143",
+    "name": "Cabernet Franc",
+    "type": "Red",
+    "grapes": [
+      "Cabernet Franc"
+    ],
+    "harmonize": [
+      "Beef",
+      "Pork",
+      "Game Meat",
+      "Spicy Food",
+      "Maturated Cheese"
+    ],
+    "abv": 14.3,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Chile",
+    "region": "Maule Valley",
+    "winery": "Erasmo",
+    "website": "http://www.caliboro.com",
+    "rating": 3.4,
+    "rating_count": 10,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:167079",
+    "name": "Reserva Cabernet Franc",
+    "type": "Red",
+    "grapes": [
+      "Cabernet Franc"
+    ],
+    "harmonize": [
+      "Beef",
+      "Pork",
+      "Game Meat",
+      "Poultry",
+      "Soft Cheese"
+    ],
+    "abv": 14.0,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Uruguay",
+    "region": "Maldonado",
+    "winery": "Bodega Garzón",
+    "website": "http://bodegagarzon.com",
+    "rating": 4.0,
+    "rating_count": 23,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:167464",
+    "name": "Los Cardos Malbec",
+    "type": "Red",
+    "grapes": [
+      "Malbec"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Poultry",
+      "French Fries"
+    ],
+    "abv": 14.5,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "Argentina",
+    "region": "Mendoza",
+    "winery": "Doña Paula",
+    "website": "http://www.donapaula.com",
+    "rating": 3.43,
+    "rating_count": 21,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:168182",
+    "name": "Gran Malbec",
+    "type": "Red",
+    "grapes": [
+      "Malbec"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Poultry"
+    ],
+    "abv": 15.0,
+    "body": "Very full-bodied",
+    "acidity": "Medium",
+    "country": "Argentina",
+    "region": "Lujan de Cuyo",
+    "winery": "De Angeles Viña 1924",
+    "website": "http://www.malbecdeangeles.com",
+    "rating": 4.16,
+    "rating_count": 19,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:168457",
+    "name": "Extra Brut Cuvée Spéciale Baron B",
+    "type": "Sparkling",
+    "grapes": [
+      "Chardonnay",
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Pork",
+      "Fish",
+      "Poultry",
+      "Vegetarian"
+    ],
+    "abv": 12.5,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Argentina",
+    "region": "Mendoza",
+    "winery": "CHANDON Argentina",
+    "website": "http://www.chandon.com.ar",
+    "rating": 3.61,
+    "rating_count": 18,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:173331",
+    "name": "Unwooded Chardonnay",
+    "type": "White",
+    "grapes": [
+      "Chardonnay"
+    ],
+    "harmonize": [
+      "Pork",
+      "Poultry",
+      "Vegetarian",
+      "Soft Cheese"
+    ],
+    "abv": 13.3,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "South Africa",
+    "region": "Western Cape",
+    "winery": "Boplaas",
+    "website": "http://www.boplaas.co.za",
+    "rating": 2.93,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:174274",
+    "name": "Cabernet Sauvignon-Shiraz",
+    "type": "Red",
+    "grapes": [
+      "Cabernet Sauvignon",
+      "Syrah/Shiraz"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Poultry"
+    ],
+    "abv": 13.5,
+    "body": "Very full-bodied",
+    "acidity": "Medium",
+    "country": "Australia",
+    "region": "South Australia",
+    "winery": "Oxford Landing",
+    "website": "http://www.oxfordlanding.com",
+    "rating": 3.27,
+    "rating_count": 20,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:175454",
+    "name": "The Visionary Cabernet Sauvignon",
+    "type": "Red",
+    "grapes": [
+      "Cabernet Sauvignon"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Lamb",
+      "Poultry"
+    ],
+    "abv": 14.5,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Australia",
+    "region": "Clare Valley",
+    "winery": "Taylors/Wakefield",
+    "website": "https://www.taylorswines.com.au",
+    "rating": 4.75,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:175754",
+    "name": "Rocky Gully Cabernets",
+    "type": "Red",
+    "grapes": [
+      "Cabernet Sauvignon",
+      "Cabernet Franc",
+      "Merlot"
+    ],
+    "harmonize": [
+      "Beef",
+      "Pasta",
+      "Lamb",
+      "Game Meat"
+    ],
+    "abv": 14.5,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "Australia",
+    "region": "Frankland River",
+    "winery": "Frankland Estate",
+    "website": "http://www.franklandestate.com.au",
+    "rating": 4.0,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:175908",
+    "name": "Haven Pinot Noir",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 13.5,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "Australia",
+    "region": "Mornington Peninsula",
+    "winery": "Kooyong",
+    "website": "http://www.kooyong.com",
+    "rating": 4.5,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:179386",
+    "name": "Pinot Noir",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Chicken"
+    ],
+    "abv": 13.5,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "United States",
+    "region": "Willamette Valley",
+    "winery": "King Estate",
+    "website": "http://www.kingestate.com",
+    "rating": 3.75,
+    "rating_count": 24,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:179958",
+    "name": "Estate Pinot Noir",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 13.5,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "United States",
+    "region": "Willamette Valley",
+    "winery": "Illahe",
+    "website": "http://www.illahevineyards.com",
+    "rating": 4.26,
+    "rating_count": 21,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:180268",
+    "name": "Old Vine Zinfandel",
+    "type": "Red",
+    "grapes": [
+      "Zinfandel"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Lamb",
+      "Poultry"
+    ],
+    "abv": 13.6,
+    "body": "Very full-bodied",
+    "acidity": "Medium",
+    "country": "United States",
+    "region": "Lodi",
+    "winery": "Maggio Family Vineyards",
+    "website": "http://www.oakridgewinery.com",
+    "rating": 3.67,
+    "rating_count": 9,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:180300",
+    "name": "Old Vine Zinfandel",
+    "type": "Red",
+    "grapes": [
+      "Zinfandel",
+      "Petite Sirah",
+      "Mourvedre",
+      "Merlot"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat",
+      "Maturated Cheese"
+    ],
+    "abv": 15.5,
+    "body": "Very full-bodied",
+    "acidity": "Medium",
+    "country": "United States",
+    "region": "Napa Valley",
+    "winery": "Big Smooth",
+    "website": "http://www.bigsmoothwines.com",
+    "rating": 3.89,
+    "rating_count": 9,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:180712",
+    "name": "Dry Creek Valley Zinfandel",
+    "type": "Dessert",
+    "grapes": [
+      "Zinfandel"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Poultry"
+    ],
+    "abv": 14.2,
+    "body": "Very full-bodied",
+    "acidity": "Medium",
+    "country": "United States",
+    "region": "Dry Creek Valley",
+    "winery": "Dashe",
+    "website": "http://www.dashecellars.com",
+    "rating": 4.07,
+    "rating_count": 15,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:181199",
+    "name": "Lauréne Pinot Noir",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 14.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "United States",
+    "region": "Dundee Hills",
+    "winery": "Domaine Drouhin",
+    "website": "http://www.domainedrouhin.com",
+    "rating": 4.88,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:185481",
+    "name": "Coyote Canyon Reserve Syrah",
+    "type": "Red",
+    "grapes": [
+      "Syrah/Shiraz"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 15.5,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "United States",
+    "region": "Horse Heaven Hills",
+    "winery": "Columbia Crest",
+    "website": "http://www.columbiacrest.com",
+    "rating": 4.09,
+    "rating_count": 11,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:185866",
+    "name": "Rosé of Pinot Noir",
+    "type": "Rosé",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Salad",
+      "Rich Fish",
+      "Shellfish",
+      "Poultry",
+      "Goat Cheese"
+    ],
+    "abv": 13.4,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "United States",
+    "region": "Willamette Valley",
+    "winery": "Anne Amie Vineyards",
+    "website": "http://www.anneamie.com",
+    "rating": 3.29,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:186843",
+    "name": "Pinot Noir",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Chicken"
+    ],
+    "abv": 14.1,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "United States",
+    "region": "Lodi",
+    "winery": "Van Ruiten",
+    "website": "http://www.vrwinery.com",
+    "rating": 3.72,
+    "rating_count": 9,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:187359",
+    "name": "Cabernet Sauvignon",
+    "type": "Red",
+    "grapes": [
+      "Cabernet Sauvignon"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat",
+      "Maturated Cheese",
+      "Hard Cheese"
+    ],
+    "abv": 14.7,
+    "body": "Very full-bodied",
+    "acidity": "Medium",
+    "country": "United States",
+    "region": "Mount Veeder",
+    "winery": "Yates Family Vineyard",
+    "website": "http://www.yatesfamilyvineyard.com",
+    "rating": 3.83,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:187681",
+    "name": "Barrel Select Fumé Blanc",
+    "type": "White",
+    "grapes": [
+      "Sauvignon Blanc"
+    ],
+    "harmonize": [
+      "Shellfish",
+      "Vegetarian",
+      "Goat Cheese"
+    ],
+    "abv": 12.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "United States",
+    "region": "New Mexico",
+    "winery": "Aridus",
+    "website": "https://www.ariduswineco.com",
+    "rating": 4.44,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:188472",
+    "name": "Pedroni Vineyard Cabernet Franc",
+    "type": "Red",
+    "grapes": [
+      "Cabernet Franc"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Chicken",
+      "Maturated Cheese"
+    ],
+    "abv": 14.6,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "United States",
+    "region": "Sonoma County",
+    "winery": "Amphora",
+    "website": "http://www.amphorawines.com",
+    "rating": 3.75,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:190621",
+    "name": "Premiere Napa Valley Cabernet Sauvignon",
+    "type": "Red",
+    "grapes": [
+      "Cabernet Sauvignon",
+      "Malbec",
+      "Petit Verdot"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Lamb",
+      "Game Meat",
+      "Maturated Cheese",
+      "Hard Cheese"
+    ],
+    "abv": 14.8,
+    "body": "Very full-bodied",
+    "acidity": "High",
+    "country": "United States",
+    "region": "Mount Veeder",
+    "winery": "The Hess Collection",
+    "website": "http://www.hesscollection.com",
+    "rating": 4.5,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:192515",
+    "name": "Private Reserve Riesling",
+    "type": "White",
+    "grapes": [
+      "Riesling"
+    ],
+    "harmonize": [
+      "Cold Cuts",
+      "Veal",
+      "Goat Cheese"
+    ],
+    "abv": 11.0,
+    "body": "Light-bodied",
+    "acidity": "High",
+    "country": "Canada",
+    "region": "Niagara Peninsula",
+    "winery": "Peller Estates",
+    "website": "https://www.peller.com",
+    "rating": 3.5,
+    "rating_count": 9,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:193488",
+    "name": "Pinot Noir",
+    "type": "Red",
+    "grapes": [
+      "Pinot Noir"
+    ],
+    "harmonize": [
+      "Beef",
+      "Veal",
+      "Game Meat",
+      "Poultry"
+    ],
+    "abv": 12.5,
+    "body": "Medium-bodied",
+    "acidity": "Medium",
+    "country": "New Zealand",
+    "region": "Marlborough",
+    "winery": "Matua",
+    "website": "http://www.matua.co.nz",
+    "rating": 3.41,
+    "rating_count": 22,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:195300",
+    "name": "Zweigelt",
+    "type": "Red",
+    "grapes": [
+      "Zweigelt"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Game Meat",
+      "Pork"
+    ],
+    "abv": 12.5,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Austria",
+    "region": "Niederösterreich",
+    "winery": "Schloss Gobelsburg",
+    "website": "http://www.gobelsburg.com",
+    "rating": 3.64,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:195476",
+    "name": "Cuvée Alexander Rose de Pinot Extra Brut",
+    "type": "Sparkling",
+    "grapes": [
+      "Pinot Noir",
+      "Cabernet Sauvignon"
+    ],
+    "harmonize": [
+      "Appetizer",
+      "Snack",
+      "Shellfish",
+      "Rich Fish"
+    ],
+    "abv": 12.5,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Russia",
+    "region": "Taman Peninsula (Таманский полуостров)",
+    "winery": "Aristov",
+    "website": "https://aristovwine.ru",
+    "rating": 3.1,
+    "rating_count": 10,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:195831",
+    "name": "Kormilitsa Red",
+    "type": "Red",
+    "grapes": [
+      "Cabernet Sauvignon",
+      "Limnio"
+    ],
+    "harmonize": [
+      "Beef",
+      "Lamb",
+      "Spicy Food",
+      "Poultry"
+    ],
+    "abv": 14.1,
+    "body": "Full-bodied",
+    "acidity": "Medium",
+    "country": "Greece",
+    "region": "Chalkidiki",
+    "winery": "Tsantali",
+    "website": "http://www.tsantali.com",
+    "rating": 4.06,
+    "rating_count": 8,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:196718",
+    "name": "Select Rosé Brut",
+    "type": "Sparkling",
+    "grapes": [
+      "Pinot Blanc",
+      "Bianca",
+      "Muscat/Moscato",
+      "Saperavi",
+      "Müller-Thurgau"
+    ],
+    "harmonize": [
+      "Shellfish",
+      "Appetizer",
+      "Snack",
+      "Lean Fish"
+    ],
+    "abv": 12.5,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "Russia",
+    "region": "Taman Peninsula (Таманский полуостров)",
+    "winery": "Château Tamagne",
+    "website": "http://kuban-vino.ru",
+    "rating": 3.3,
+    "rating_count": 5,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:196838",
+    "name": "Kallisto",
+    "type": "White",
+    "grapes": [
+      "Assyrtiko",
+      "Robola"
+    ],
+    "harmonize": [
+      "Shellfish",
+      "Lean Fish",
+      "Poultry",
+      "Blue Cheese"
+    ],
+    "abv": 13.0,
+    "body": "Full-bodied",
+    "acidity": "High",
+    "country": "Greece",
+    "region": "Ilia",
+    "winery": "Mercouri Estate",
+    "website": "http://www.mercouri.gr",
+    "rating": 3.57,
+    "rating_count": 7,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  },
+  {
+    "id": "xwines:198580",
+    "name": "The Falcon Pinot Gris",
+    "type": "White",
+    "grapes": [
+      "Pinot Gris"
+    ],
+    "harmonize": [
+      "Pork",
+      "Spicy Food",
+      "Mushrooms",
+      "Vegetarian"
+    ],
+    "abv": 13.0,
+    "body": "Medium-bodied",
+    "acidity": "High",
+    "country": "New Zealand",
+    "region": "Marlborough",
+    "winery": "Lake Chalice",
+    "website": "http://www.lakechalice.com",
+    "rating": 3.08,
+    "rating_count": 6,
+    "source": "X-Wines Test sample",
+    "source_url": "https://github.com/rogerioxavier/X-Wines"
+  }
+]

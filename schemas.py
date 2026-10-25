@@ -18,5 +18,20 @@ class RecipeRecommendation(BaseModel):
     health_angle: str = "A lighter direction to explore."
     interest_angle: str = "A fresh way to use familiar ingredients."
 class RecipeRecommendationResponse(BaseModel): recommendations: list[RecipeRecommendation]
+class DishWineProfile(BaseModel):
+    heat: float = Field(ge=0, le=1)
+    richness: float = Field(ge=0, le=1)
+    salt: float = Field(ge=0, le=1)
+    sweetness: float = Field(ge=0, le=1)
+    acidity: float = Field(ge=0, le=1)
+    umami: float = Field(ge=0, le=1)
+    protein_weight: float = Field(ge=0, le=1)
+    target_style: str
+    pairing_tags: list[str] = []
+    rationale: list[str] = []
+class WineExplanation(BaseModel):
+    wine_id: str
+    explanation: str = "Its structure and listed food pairings make it a promising match."
+class WineExplanationResponse(BaseModel): explanations: list[WineExplanation]
 class CriticResult(BaseModel):
     accepted: bool; authenticity_score: int = Field(ge=1, le=5); reason: str; allergen_flags: list[str] = []; medical_claims: list[str] = []
