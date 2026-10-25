@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.pytest_cache/
+slide_test.png
+HomeDish_Report.pdf
+HomeDish_Slides.pdf
+logs/*.jsonl
+!logs/sample_run.jsonl
+.homedish_upload.jpg
+Demo Video.MOV
